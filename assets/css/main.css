@@ -554,10 +554,12 @@ body.is-loaded .hero-scroll { opacity: 1; }
   border: 1px solid var(--line);
 }
 .person-photo img {
-  width: 100%; height: 100%; object-fit: cover; filter: grayscale(45%);
-  transition: filter 0.6s ease, transform 1.2s var(--ease);
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 1.2s var(--ease);
 }
-.person:hover .person-photo img { filter: grayscale(0%); transform: scale(1.035); }
+.person-photo { transition: border-color 0.4s ease, box-shadow 0.5s ease; }
+.person:hover .person-photo { border-color: rgba(201, 162, 39, 0.55); box-shadow: 0 0 0 1px rgba(201, 162, 39, 0.25), 0 14px 38px -14px rgba(201, 162, 39, 0.18); }
+.person:hover .person-photo img { transform: scale(1.035); }
 a.person { display: block; color: inherit; }
 .profile-cue { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-bright); margin-top: 14px; opacity: 0; transform: translateY(4px); transition: opacity 0.35s ease, transform 0.35s var(--ease); }
 .person:hover .profile-cue, .person:focus-visible .profile-cue { opacity: 1; transform: none; }
@@ -791,16 +793,21 @@ a.album-tile { display: block; }
 /* ---------- Illustration plate ---------- */
 .plate {
   border-radius: 18px; overflow: hidden; border: 1px solid var(--line);
-  background: #f4f1e9;
+  background: linear-gradient(160deg, rgba(255,255,255,0.028), rgba(255,255,255,0.008));
 }
 .plate img { width: 100%; display: block; padding: clamp(18px, 3vw, 40px) clamp(14px, 2.5vw, 32px) clamp(10px, 2vw, 24px); }
 .plate-caps {
   display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;
   padding: 0 clamp(18px, 3vw, 44px) clamp(18px, 3vw, 32px);
   font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: #4a4438; line-height: 1.7;
+  color: var(--ink-dim); line-height: 1.7;
 }
-.plate-caps em { font-style: normal; color: #a07d1c; margin-right: 8px; }
+.plate-caps em { font-style: normal; color: var(--gold-bright); margin-right: 8px; }
+.plate-credit {
+  display: block; text-align: right; padding: 0 clamp(18px, 3vw, 44px) 18px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
 .plate-caps span:nth-child(2) { text-align: center; }
 .plate-caps span:nth-child(3) { text-align: right; }
 @media (max-width: 720px) { .plate-caps { grid-template-columns: 1fr; } .plate-caps span:nth-child(n) { text-align: left; } }
