@@ -646,7 +646,7 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 .n-below .ttl-lab { top: 22px; }
 .n-above .ttl-lab { bottom: 22px; }
 .ttl-year { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--ink-dim); transition: color 0.3s ease; white-space: nowrap; }
-.ttl-tool { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.05em; text-transform: uppercase; color: #9a917f; opacity: 0.8; text-align: center; line-height: 1.35; transition: color 0.3s ease; }
+.ttl-tool { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-faint); opacity: 0.8; text-align: center; line-height: 1.35; transition: color 0.3s ease; }
 .ttl-node:hover .ttl-year, .ttl-node.is-active .ttl-year,
 .ttl-node:hover .ttl-tool, .ttl-node.is-active .ttl-tool { color: var(--nc, var(--gold-bright)); opacity: 1; }
 .ttl-panel {
