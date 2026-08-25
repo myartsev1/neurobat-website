@@ -265,7 +265,7 @@ body.is-loaded .hero-tag, body.is-loaded .hero-sub, body.is-loaded .hero-ctas { 
 .hero-scroll {
   position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%); z-index: 2;
   display: flex; flex-direction: column; align-items: center; gap: 10px;
-  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-faint);
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.3em; text-transform: uppercase; color: #9a917f;
   opacity: 0; transition: opacity 1s ease 1.4s;
 }
 body.is-loaded .hero-scroll { opacity: 1; }
@@ -292,7 +292,7 @@ body.is-loaded .hero-scroll { opacity: 1; }
 @media (max-width: 900px) { .philo-grid { grid-template-columns: 1fr; } }
 .pull-block { border-left: 2px solid var(--gold); padding-left: 28px; margin-top: 40px; }
 .pull-block p { font-family: var(--font-display); font-style: italic; font-size: clamp(19px, 1.9vw, 24px); line-height: 1.5; color: var(--ink); }
-.pull-block .src { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-top: 14px; font-style: normal; }
+.pull-block .src { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #9a917f; margin-top: 14px; font-style: normal; }
 
 /* ---------- Guiding principles ---------- */
 .rule-motto { font-family: var(--font-display); font-weight: 480; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.2; margin-top: 14px; letter-spacing: -0.01em; }
@@ -501,7 +501,7 @@ body.is-loaded .hero-scroll { opacity: 1; }
 .photo-frame.missing::before {
   content: "Photo coming soon"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
   text-align: center; padding: 24px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em;
-  text-transform: uppercase; color: var(--ink-faint); background:
+  text-transform: uppercase; color: #9a917f; background:
     radial-gradient(circle at 50% 44%, rgba(201,162,39,0.07), transparent 62%);
 }
 .photo-frame.missing::after {
@@ -575,7 +575,7 @@ a.person { display: block; color: inherit; }
   font-family: var(--font-display); font-size: 21px; color: var(--gold-bright); font-style: italic;
 }
 .person h3 { font-family: var(--font-display); font-weight: 500; font-size: 21px; }
-.person .role { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-top: 8px; line-height: 1.7; }
+.person .role { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #9a917f; margin-top: 8px; line-height: 1.7; }
 .person .fellow { color: var(--gold-bright); }
 .alum-list { columns: 2; column-gap: 60px; }
 @media (max-width: 760px) { .alum-list { columns: 1; } }
@@ -612,7 +612,7 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 .pos-link { color: var(--ink-dim); border-bottom: 1px solid rgba(201,162,39,0.35); transition: color 0.3s ease, border-color 0.3s ease; }
 .pos-link:hover { color: var(--gold-bright); border-color: var(--gold-bright); }
 
-.micro-note { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); margin-top: 18px; }
+.micro-note { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #9a917f; margin-top: 18px; }
 .cap-cue { float: right; color: var(--gold-bright); opacity: 0; transform: translateY(4px); transition: opacity 0.35s ease, transform 0.35s var(--ease); display: inline-block; }
 @media (hover: none) { .cap-cue { opacity: 1; transform: none; } }
 .cap-cue .arr { display: inline-block; transition: transform 0.35s var(--ease); }
@@ -620,7 +620,7 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 .pi-frame:hover .cap-cue .arr { transform: translateX(4px); }
 .pi-frame:hover img { filter: brightness(1.07); }
 .pi-frame img { transition: transform 1.4s var(--ease), filter 0.4s ease; }
-.side-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 16px; font-weight: 400; }
+.side-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #9a917f; margin-bottom: 16px; font-weight: 400; }
 
 .awards-list { list-style: none; margin-top: 20px; }
 .awards-list li { display: flex; gap: 18px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--ink-dim); font-size: 15.5px; line-height: 1.6; }
@@ -629,7 +629,7 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 .awards-list a:hover { color: var(--gold-bright); }
 
 /* ---------- Timeline as a winding road ---------- */
-.ttl-legend { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 6px; }
+.ttl-legend { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #9a917f; margin-bottom: 6px; }
 .ttl-legend .lg { display: inline-flex; align-items: center; gap: 7px; }
 .ttl-legend .lg i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
 .ttl-legend .lg-note { opacity: 0.7; padding-left: 6px; border-left: 1px solid var(--line-strong); }
@@ -646,7 +646,7 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 .n-below .ttl-lab { top: 22px; }
 .n-above .ttl-lab { bottom: 22px; }
 .ttl-year { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--ink-dim); transition: color 0.3s ease; white-space: nowrap; }
-.ttl-tool { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-faint); opacity: 0.8; text-align: center; line-height: 1.35; transition: color 0.3s ease; }
+.ttl-tool { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.05em; text-transform: uppercase; color: #9a917f; opacity: 0.8; text-align: center; line-height: 1.35; transition: color 0.3s ease; }
 .ttl-node:hover .ttl-year, .ttl-node.is-active .ttl-year,
 .ttl-node:hover .ttl-tool, .ttl-node.is-active .ttl-tool { color: var(--nc, var(--gold-bright)); opacity: 1; }
 .ttl-panel {
@@ -748,7 +748,7 @@ a.album-tile { display: block; }
 .footer { border-top: 1px solid var(--line); padding: clamp(56px, 8vw, 100px) 0 40px; position: relative; overflow: hidden; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: clamp(32px, 5vw, 80px); }
 @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr; } }
-.footer h4 { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 20px; }
+.footer h4 { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #9a917f; margin-bottom: 20px; }
 .footer ul { list-style: none; }
 .footer ul a { color: var(--ink-dim); display: inline-block; padding: 5px 0; transition: color 0.3s ease, transform 0.3s var(--ease); }
 .footer ul a:hover { color: var(--gold-bright); transform: translateX(4px); }
@@ -793,20 +793,20 @@ a.album-tile { display: block; }
 /* ---------- Illustration plate ---------- */
 .plate {
   border-radius: 18px; overflow: hidden; border: 1px solid var(--line);
-  background: #000;
+  background: #f4f1e9;
 }
 .plate img { width: 100%; display: block; padding: clamp(18px, 3vw, 40px) clamp(14px, 2.5vw, 32px) clamp(10px, 2vw, 24px); }
 .plate-caps {
   display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;
   padding: 0 clamp(18px, 3vw, 44px) clamp(18px, 3vw, 32px);
   font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--ink-dim); line-height: 1.7;
+  color: #4a4438; line-height: 1.7;
 }
-.plate-caps em { font-style: normal; color: var(--gold-bright); margin-right: 8px; }
+.plate-caps em { font-style: normal; color: #a07d1c; margin-right: 8px; }
 .plate-credit {
   display: block; text-align: right; padding: 0 clamp(18px, 3vw, 44px) 18px;
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
-  text-transform: uppercase; color: var(--ink-faint);
+  text-transform: uppercase; color: #9a917f;
 }
 .plate-caps span:nth-child(2) { text-align: center; }
 .plate-caps span:nth-child(3) { text-align: right; }
