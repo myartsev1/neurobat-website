@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la /Users/MichaelNew/Downloads/myartsev/Claude_Cowork_Safe_Workspace/ 2>/dev/null)",
+      "WebFetch(domain:www.michaelyartsev.com)"
+    ]
+  }
+}
