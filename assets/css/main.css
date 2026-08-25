@@ -793,7 +793,7 @@ a.album-tile { display: block; }
 /* ---------- Illustration plate ---------- */
 .plate {
   border-radius: 18px; overflow: hidden; border: 1px solid var(--line);
-  background: linear-gradient(160deg, rgba(255,255,255,0.028), rgba(255,255,255,0.008));
+  background: #000;
 }
 .plate img { width: 100%; display: block; padding: clamp(18px, 3vw, 40px) clamp(14px, 2.5vw, 32px) clamp(10px, 2vw, 24px); }
 .plate-caps {
