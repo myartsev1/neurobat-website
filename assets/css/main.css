@@ -700,6 +700,13 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 .qterrain { height: auto; aspect-ratio: 1600 / 1000; }
 .qterrain-img { position: absolute; inset: 0; width: 100%; height: 100%; }
 .qnext .ttl-dot { border-style: dashed; }
+.qcontour-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.qcontour { transition: stroke 0.35s ease, stroke-width 0.35s ease, filter 0.35s ease; }
+.qcontour.is-lit { stroke: #E8C34A; stroke-opacity: 1; stroke-width: 2.4; filter: drop-shadow(0 0 6px rgba(232, 195, 74, 0.7)); }
+.qcap { transition: filter 0.35s ease; }
+.qcap.is-lit .fy, .qcap.is-lit .ft { color: #E8C34A; }
+.qdot.is-lit .ttl-dot { background: #0a0e1a; border-color: #0a0e1a; box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.45); }
+.qdot.is-lit .qyr { color: #0a0e1a; text-shadow: 0 0 6px rgba(255, 255, 255, 0.35); }
 .qglow {
   position: absolute; inset: 0; width: 100%; height: 100%;
   opacity: 0; transition: opacity 0.45s ease; pointer-events: none;

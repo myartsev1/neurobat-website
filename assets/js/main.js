@@ -209,9 +209,11 @@
   document.querySelectorAll(".qterrain").forEach((plot) => {
     const glows = plot.querySelectorAll(".qglow");
     const labels = plot.querySelectorAll(".qterr[data-fam]");
+    const dots = plot.querySelectorAll(".qdot[data-fam]");
     const set = (fams) => {
       glows.forEach((g) => g.classList.toggle("is-on", fams.includes(g.dataset.fam)));
       labels.forEach((l) => l.classList.toggle("is-lit", fams.includes(l.dataset.fam)));
+      dots.forEach((d) => d.classList.toggle("is-lit", d.dataset.fam.split(" ").some((f) => fams.includes(f))));
     };
     plot.querySelectorAll("[data-fam]").forEach((el) => {
       if (el.classList.contains("qglow")) return;
@@ -221,6 +223,45 @@
       el.addEventListener("focus", () => set(fams));
       el.addEventListener("blur", () => set([]));
     });
+    /* pixel-accurate hover: sample the glow layers under the cursor */
+    const hit = [];
+    glows.forEach((img) => {
+      const build = () => {
+        const cv = document.createElement("canvas");
+        cv.width = 320; cv.height = 200;
+        const cx = cv.getContext("2d", { willReadFrequently: true });
+        cx.drawImage(img, 0, 0, 320, 200);
+        hit.push({ fam: img.dataset.fam, cx });
+      };
+      if (img.complete && img.naturalWidth) build();
+      else img.addEventListener("load", build);
+    });
+    plot.addEventListener("mousemove", (e) => {
+      if (e.target.closest("[data-fam], .ttl-fnode")) return;
+      const r = plot.getBoundingClientRect();
+      const x = Math.max(0, Math.min(319, ((e.clientX - r.left) / r.width) * 320)) | 0;
+      const y = Math.max(0, Math.min(199, ((e.clientY - r.top) / r.height) * 200)) | 0;
+      const fams = [];
+      hit.forEach((h) => {
+        if (h.cx.getImageData(x, y, 1, 1).data[3] > 70) fams.push(h.fam);
+      });
+      set(fams);
+    });
+    plot.addEventListener("mouseleave", () => set([]));
+    /* the trailhead flag lights the 2015 contour and its caption */
+    const flag = plot.querySelector(".ttl-fnode");
+    const contour = plot.querySelector(".qcontour");
+    const cap = plot.querySelector(".qcap");
+    if (flag && contour) {
+      const lit = (on) => {
+        contour.classList.toggle("is-lit", on);
+        if (cap) cap.classList.toggle("is-lit", on);
+      };
+      flag.addEventListener("mouseenter", () => lit(true));
+      flag.addEventListener("mouseleave", () => lit(false));
+      flag.addEventListener("focus", () => lit(true));
+      flag.addEventListener("blur", () => lit(false));
+    }
   });
 
   document.querySelectorAll(".ttl").forEach((ttl) => {
