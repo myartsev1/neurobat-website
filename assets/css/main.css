@@ -743,8 +743,8 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
   opacity: 0.6; transition: opacity 0.35s ease;
 }
 .qcap.is-lit { opacity: 1; }
-.qcap .fy { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--gold-bright); }
-.qcap .ft { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(201, 162, 39, 0.8); line-height: 1.6; }
+.qcap .fy { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: #EDE9DF; text-shadow: 0 1px 5px rgba(8, 11, 20, 0.9); }
+.qcap .ft { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(237, 233, 223, 0.85); line-height: 1.6; text-shadow: 0 1px 5px rgba(8, 11, 20, 0.9); }
 .qmap .ttl-flab {
   left: 50%; bottom: 30px; top: auto; transform: translateX(-50%);
   align-items: center; text-align: center;
