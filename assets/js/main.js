@@ -205,9 +205,10 @@
   });
 
   /* ---------- Interactive timeline (research toolkit) ---------- */
-  const ttlNodes = document.querySelectorAll(".ttl-node");
-  if (ttlNodes.length) {
-    const ttlDetails = document.querySelectorAll(".ttl-detail");
+  document.querySelectorAll(".ttl").forEach((ttl) => {
+    const ttlNodes = ttl.querySelectorAll(".ttl-node");
+    if (!ttlNodes.length) return;
+    const ttlDetails = ttl.querySelectorAll(".ttl-detail");
     function ttlSet(i) {
       ttlNodes.forEach((n) => {
         const on = n.dataset.i === String(i);
@@ -225,9 +226,9 @@
       n.addEventListener("focus", () => { stopWalk(); ttlSet(n.dataset.i); });
       n.addEventListener("click", () => { stopWalk(); ttlSet(n.dataset.i); });
     });
-    /* rest on the newest real capability by default... */
+    /* rest on the newest real entry by default... */
     ttlSet(ttlNodes.length - 2);
-    /* ...then, on first sight, walk the whole history once and end on "to be continued" */
+    /* ...then, on first sight, walk the whole history once */
     if (!reduced) {
       let walked = false;
       const wio = new IntersectionObserver(([en]) => {
@@ -242,9 +243,9 @@
           ttlSet(i);
         }, 750);
       }, { threshold: 0.6 });
-      wio.observe(document.querySelector(".ttl"));
+      wio.observe(ttl);
     }
-  }
+  });
 
   /* ---------- Photo fallbacks ---------- */
   document.querySelectorAll(".photo-frame img").forEach((img) => {

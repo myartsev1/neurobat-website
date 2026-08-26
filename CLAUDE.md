@@ -77,7 +77,7 @@ Journal pill classes: j-nature, j-science, j-cell, j-other.
 
 **Add a Lab Life album**: photos into `assets/img/albums/<slug>/`, copy an album-*.html as template, add a tile in lab-life.html with photo count.
 
-**Toolkit timeline** (research.html): nodes + detail cards share sequential `data-i`; the walk and default selection are index-generic in main.js. Mobile has a parallel `.ttl-mobile` list to keep in sync. The 2015 founding milestone is a `ttl-fnode` button (gold diamond, no behavioral color, no citation).
+**Winding-road timelines** (research.html): TWO of them, 05 The Questions and 06 The Toolkit, sharing identical road geometry and node slots. Nodes + detail cards share sequential `data-i` within each `.ttl` container; main.js scopes all interaction per container (do not query `.ttl-node` globally). Each has a parallel `.ttl-mobile` list to keep in sync. The 2015 founding milestone is a `ttl-fnode` button (gold diamond, no behavioral color, no citation) present on both.
 
 ## Structure notes
 
