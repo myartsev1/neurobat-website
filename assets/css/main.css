@@ -715,13 +715,14 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 .qterr[data-fam] { pointer-events: auto; cursor: default; transition: opacity 0.3s ease, color 0.3s ease, text-shadow 0.3s ease; }
 .qterr.is-lit { color: #0a0e1a !important; opacity: 1; font-weight: 600; text-shadow: 0 0 3px rgba(255, 255, 255, 0.95), 0 0 9px rgba(255, 255, 255, 0.6), 0 0 18px rgba(255, 255, 255, 0.35); }
 .qdot:hover .qyr { color: #0a0e1a; text-shadow: 0 0 6px rgba(255, 255, 255, 0.35); }
-.qterrain .ttl-fnode { transform: translate(-5px, -94%); width: auto; height: auto; }
-.qflag { display: block; filter: drop-shadow(0 0 7px rgba(232, 195, 74, 0.55)); transition: transform 0.35s var(--ease); transform-origin: 15% 100%; }
-.qterrain .ttl-fnode:hover .qflag, .qterrain .ttl-fnode.is-active .qflag { transform: scale(1.18); }
+
 .qcap {
   position: absolute; transform: translateX(-50%); text-align: center; pointer-events: none;
-  display: flex; flex-direction: column; gap: 2px; width: max-content; max-width: 220px;
+  display: flex; flex-direction: column; gap: 2px; width: max-content; max-width: 230px;
+  background: rgba(8, 11, 20, 0.86); border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: 10px; padding: 8px 14px; backdrop-filter: blur(2px);
 }
+.qcap.is-lit { border-color: rgba(232, 195, 74, 0.9); box-shadow: 0 0 18px -4px rgba(232, 195, 74, 0.5); }
 .qcap .fy { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--gold-bright); }
 .qcap .ft { font-family: var(--font-display); font-style: italic; font-size: 12.5px; line-height: 1.35; color: var(--ink-dim); }
 .qmap .ttl-flab {
