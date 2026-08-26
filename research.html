@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/main.css?v=1787766313" />
+  <link rel="stylesheet" href="assets/css/main.css?v=1787766879" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -169,77 +169,78 @@
       <div class="container">
         <p class="kicker" data-reveal><span class="idx">05</span> The Questions</p>
         <h2 class="h-section" data-reveal id="questions">From one valley, a range of peaks.</h2>
-        <p class="lede" data-reveal style="margin-top: 24px">Every research paper of the lab, drawn as a landscape, in the spirit of <a class="tl-cite" href="https://www.nature.com/articles/s41593-026-02225-z" target="_blank" rel="noopener">Yartsev, Nature Neuroscience, 2026 →</a>. Elevation marks the year, and color marks the family of questions: the work begins as low blue ground in front, how the brain maps space, and rises toward the present. The gold contour rings the lab&rsquo;s 2015 founding: everything above it came after, as the questions spread into sociality, communication, motor control, theory, and neurotechnology. Peaks that stand between territories belong to more than one, because real behavior is never one function. Hover any peak:</p>
+        <p class="lede" data-reveal style="margin-top: 24px">Every research paper of the lab, drawn as a landscape, in the spirit of <a class="tl-cite" href="https://www.nature.com/articles/s41593-026-02225-z" target="_blank" rel="noopener">Yartsev, Nature Neuroscience, 2026 →</a>. Elevation marks the year, and color marks the family of questions: the work begins as low blue ground in front, how the brain maps space, and rises toward the present. The gold flag is the trailhead, the lab&rsquo;s 2015 founding, and the gold contour rings its elevation: everything above it came after, as the questions spread into sociality, communication, motor control, and neurotechnology. Peaks that stand between territories belong to more than one, because real behavior is never one function. Hover a territory name or any peak:</p>
         <div class="ttl" data-reveal style="margin-top: clamp(36px, 5vw, 60px)">
-          <p class="ttl-legend"><span class="lg"><i style="background:#8FB4E8"></i>Navigation</span> <span class="lg"><i style="background:#7FD49A"></i>Sociality</span> <span class="lg"><i style="background:#B49AE0"></i>Communication &amp; vocal learning</span> <span class="lg"><i style="background:#E8C34A"></i>Motor</span> <span class="lg"><i style="background:#EDE9DF"></i>Theory</span> <span class="lg"><i style="background:#C9A227"></i>Neurotechnology</span><span class="lg lg-note">color = the question &middot; elevation = the year &middot; gold contour = the 2015 founding</span></p>
-          <div class="ttl-plot qmap qterrain" role="tablist" aria-label="Three-dimensional landscape of research questions: elevation and color encode the year, the gold contour marks the 2015 founding">
-            <img class="qterrain-img" src="assets/img/questions-terrain2.png" alt="" aria-hidden="true" loading="lazy"/>
-            <button class="ttl-node qdot" data-i="0" aria-pressed="false" style="left: 19.9%; top: 56.8%; --nc: #8FB4E8" aria-label="2011: Grid cells in the medial entorhinal cortex">
+          <p class="ttl-legend"><span class="lg"><i style="background:#8FB4E8"></i>Navigation</span> <span class="lg"><i style="background:#7FD49A"></i>Sociality</span> <span class="lg"><i style="background:#B49AE0"></i>Communication &amp; vocal learning</span> <span class="lg"><i style="background:#E8C34A"></i>Motor</span> <span class="lg"><i style="background:#4FC9C4"></i>Neurotechnology</span> <span class="lg lg-note">color = the question &middot; elevation = the year &middot; gold contour = the 2015 founding</span></p>
+          <div class="ttl-plot qmap qterrain" role="tablist" aria-label="Three-dimensional landscape of research questions: elevation encodes the year, color the family of questions, the gold flag the 2015 founding">
+            <img class="qterrain-img" src="assets/img/questions-terrain3.png" alt="" aria-hidden="true" loading="lazy"/>
+            <img class="qglow" data-fam="nav" src="assets/img/qglow-nav.png" alt="" aria-hidden="true" loading="lazy"/><img class="qglow" data-fam="soc" src="assets/img/qglow-soc.png" alt="" aria-hidden="true" loading="lazy"/><img class="qglow" data-fam="comm" src="assets/img/qglow-comm.png" alt="" aria-hidden="true" loading="lazy"/><img class="qglow" data-fam="motor" src="assets/img/qglow-motor.png" alt="" aria-hidden="true" loading="lazy"/><img class="qglow" data-fam="ntech" src="assets/img/qglow-ntech.png" alt="" aria-hidden="true" loading="lazy"/>
+            <button class="ttl-node qdot" data-i="0" data-fam="nav" aria-pressed="false" style="left: 19.9%; top: 56.9%; --nc: #8FB4E8" aria-label="2011: Grid cells in the medial entorhinal cortex">
               <span class="ttl-dot"></span><span class="qyr">2011</span>
             </button>
-            <button class="ttl-node qdot" data-i="1" aria-pressed="false" style="left: 27.3%; top: 52.6%; --nc: #8FB4E8" aria-label="2013: Three-dimensional space in the hippocampus">
+            <button class="ttl-node qdot" data-i="1" data-fam="nav" aria-pressed="false" style="left: 27.3%; top: 52.3%; --nc: #8FB4E8" aria-label="2013: Three-dimensional space in the hippocampus">
               <span class="ttl-dot"></span><span class="qyr">2013</span>
             </button>
-            <button class="ttl-node ttl-fnode" data-i="2" aria-pressed="false" style="left: 30.5%; top: 49.1%" aria-label="2015: The NeuroBat Lab opens at UC Berkeley">
-              <span class="ttl-diamond" aria-hidden="true"></span>
+            <button class="ttl-node ttl-fnode qflagbtn" data-i="2" aria-pressed="false" style="left: 30.5%; top: 48.6%" aria-label="2015: The NeuroBat Lab opens at UC Berkeley, the trailhead">
+              <svg class="qflag" viewBox="0 0 26 34" width="26" height="34" aria-hidden="true"><path d="M 4 3 L 4 33" stroke="#E8C34A" stroke-width="2.4" stroke-linecap="round"/><path d="M 5.5 4 L 23 9 L 5.5 14.5 Z" fill="#E8C34A"/></svg>
             </button>
-            <button class="ttl-node qdot" data-i="3" aria-pressed="false" style="left: 20.5%; top: 42.7%; --nc: #EDE9DF" aria-label="2018: A theory of spatial maps in three dimensions">
+            <button class="ttl-node qdot" data-i="3" data-fam="nav" aria-pressed="false" style="left: 26.4%; top: 41.6%; --nc: #8FB4E8" aria-label="2018: A theory of spatial maps in three dimensions">
               <span class="ttl-dot"></span><span class="qyr">2018</span>
             </button>
-            <button class="ttl-node qdot" data-i="4" aria-pressed="false" style="left: 33.8%; top: 43.3%; --nc: #8FB4E8" aria-label="2018: Temporal codes without oscillations">
+            <button class="ttl-node qdot" data-i="4" data-fam="nav" aria-pressed="false" style="left: 33.8%; top: 42.4%; --nc: #8FB4E8" aria-label="2018: Temporal codes without oscillations">
               <span class="ttl-dot"></span><span class="qyr">2018</span>
             </button>
-            <button class="ttl-node qdot" data-i="5" aria-pressed="false" style="left: 60.3%; top: 39.8%; --nc: #7FD49A" aria-label="2019: Neural dynamics across interacting brains">
+            <button class="ttl-node qdot" data-i="5" data-fam="soc" aria-pressed="false" style="left: 60.3%; top: 39.8%; --nc: #7FD49A" aria-label="2019: Neural dynamics across interacting brains">
               <span class="ttl-dot"></span><span class="qyr">2019</span>
             </button>
-            <button class="ttl-node qdot" data-i="6" aria-pressed="false" style="left: 77.9%; top: 48.1%; --nc: #B49AE0" aria-label="2019: Vocal plasticity in adulthood">
+            <button class="ttl-node qdot" data-i="6" data-fam="comm" aria-pressed="false" style="left: 77.9%; top: 48.1%; --nc: #B49AE0" aria-label="2019: Vocal plasticity in adulthood">
               <span class="ttl-dot"></span><span class="qyr">2019</span>
             </button>
-            <button class="ttl-node qdot" data-i="7" aria-pressed="false" style="left: 66.9%; top: 34.9%; --nc: #7FD49A" aria-label="2021: Group communication in the frontal cortex">
+            <button class="ttl-node qdot" data-i="7" data-fam="soc" aria-pressed="false" style="left: 66.9%; top: 34.9%; --nc: #7FD49A" aria-label="2021: Group communication in the frontal cortex">
               <span class="ttl-dot"></span><span class="qyr">2021</span>
             </button>
-            <button class="ttl-node qdot" data-i="8" aria-pressed="false" style="left: 38.8%; top: 33.7%; --nc: #8FB4E8" aria-label="2021: The hippocampus beyond the here and now">
+            <button class="ttl-node qdot" data-i="8" data-fam="nav" aria-pressed="false" style="left: 38.8%; top: 33.7%; --nc: #8FB4E8" aria-label="2021: The hippocampus beyond the here and now">
               <span class="ttl-dot"></span><span class="qyr">2021</span>
             </button>
-            <button class="ttl-node qdot" data-i="9" aria-pressed="false" style="left: 49.0%; top: 39.0%; --nc: #C9A227" aria-label="2021: The human-free flight room">
+            <button class="ttl-node qdot" data-i="9" data-fam="nav ntech" aria-pressed="false" style="left: 49.0%; top: 39.0%; --nc: #8FB4E8" aria-label="2021: The human-free flight room">
               <span class="ttl-dot"></span><span class="qyr">2021</span>
             </button>
-            <button class="ttl-node qdot" data-i="10" aria-pressed="false" style="left: 44.2%; top: 31.7%; --nc: #8FB4E8" aria-label="2022: A stable code for familiar space">
+            <button class="ttl-node qdot" data-i="10" data-fam="nav ntech" aria-pressed="false" style="left: 44.2%; top: 31.7%; --nc: #8FB4E8" aria-label="2022: A stable code for familiar space">
               <span class="ttl-dot"></span><span class="qyr">2022</span>
             </button>
-            <button class="ttl-node qdot" data-i="11" aria-pressed="false" style="left: 72.7%; top: 32.7%; --nc: #7FD49A" aria-label="2022: A mechanism for inter-brain coupling">
+            <button class="ttl-node qdot" data-i="11" data-fam="soc" aria-pressed="false" style="left: 72.7%; top: 32.7%; --nc: #7FD49A" aria-label="2022: A mechanism for inter-brain coupling">
               <span class="ttl-dot"></span><span class="qyr">2022</span>
             </button>
-            <button class="ttl-node qdot" data-i="12" aria-pressed="false" style="left: 53.2%; top: 28.8%; --nc: #7FD49A" aria-label="2023: Navigation as a collective">
+            <button class="ttl-node qdot" data-i="12" data-fam="nav soc" aria-pressed="false" style="left: 53.2%; top: 28.8%; --nc: #8FB4E8" aria-label="2023: Navigation as a collective">
               <span class="ttl-dot"></span><span class="qyr">2023</span>
             </button>
-            <button class="ttl-node qdot" data-i="13" aria-pressed="false" style="left: 56.8%; top: 31.5%; --nc: #7FD49A" aria-label="2024: The experimenter in the room">
+            <button class="ttl-node qdot" data-i="13" data-fam="nav soc" aria-pressed="false" style="left: 56.8%; top: 31.5%; --nc: #8FB4E8" aria-label="2024: The experimenter in the room">
               <span class="ttl-dot"></span><span class="qyr">2024</span>
             </button>
-            <button class="ttl-node qdot" data-i="14" aria-pressed="false" style="left: 82.1%; top: 36.1%; --nc: #B49AE0" aria-label="2024: Auditory feedback and learned vocalizations">
+            <button class="ttl-node qdot" data-i="14" data-fam="comm" aria-pressed="false" style="left: 82.1%; top: 36.1%; --nc: #B49AE0" aria-label="2024: Auditory feedback and learned vocalizations">
               <span class="ttl-dot"></span><span class="qyr">2024</span>
             </button>
-            <button class="ttl-node qdot" data-i="15" aria-pressed="false" style="left: 86.8%; top: 33.4%; --nc: #B49AE0" aria-label="2024: The evolutionary roots of vocal learning">
+            <button class="ttl-node qdot" data-i="15" data-fam="comm" aria-pressed="false" style="left: 86.8%; top: 33.4%; --nc: #B49AE0" aria-label="2024: The evolutionary roots of vocal learning">
               <span class="ttl-dot"></span><span class="qyr">2024</span>
             </button>
-            <button class="ttl-node qdot" data-i="16" aria-pressed="false" style="left: 57.8%; top: 27.1%; --nc: #8FB4E8" aria-label="2025: Memory and planning on the wing">
+            <button class="ttl-node qdot" data-i="16" data-fam="nav ntech motor" aria-pressed="false" style="left: 57.8%; top: 27.1%; --nc: #8FB4E8" aria-label="2025: Memory and planning on the wing">
               <span class="ttl-dot"></span><span class="qyr">2025</span>
             </button>
-            <button class="ttl-node qdot" data-i="17" aria-pressed="false" style="left: 44.1%; top: 25.8%; --nc: #8FB4E8" aria-label="2026: A two-dimensional code for a three-dimensional world">
+            <button class="ttl-node qdot" data-i="17" data-fam="nav" aria-pressed="false" style="left: 44.1%; top: 25.8%; --nc: #8FB4E8" aria-label="2026: A two-dimensional code for a three-dimensional world">
               <span class="ttl-dot"></span><span class="qyr">2026</span>
             </button>
-            <button class="ttl-node qdot" data-i="18" aria-pressed="false" style="left: 64.8%; top: 23.7%; --nc: #C9A227" aria-label="2026: Seeing neural activity without frames">
+            <button class="ttl-node qdot" data-i="18" data-fam="ntech" aria-pressed="false" style="left: 64.8%; top: 23.7%; --nc: #4FC9C4" aria-label="2026: Seeing neural activity without frames">
               <span class="ttl-dot"></span><span class="qyr">2026</span>
             </button>
-            <button class="ttl-node qdot" data-i="19" aria-pressed="false" style="left: 73.4%; top: 26.3%; --nc: #E8C34A" aria-label="2026: Dexterous movement in the motor cortex">
+            <button class="ttl-node qdot" data-i="19" data-fam="motor" aria-pressed="false" style="left: 73.4%; top: 26.3%; --nc: #E8C34A" aria-label="2026: Dexterous movement in the motor cortex">
               <span class="ttl-dot"></span><span class="qyr">2026</span>
             </button>
             <button class="ttl-node qdot qnext" data-i="20" aria-pressed="false" style="left: 92.2%; top: 13.7%; --nc: #EDE9DF" aria-label="20??: To be continued">
               <span class="ttl-dot"></span><span class="qyr">20??</span>
             </button>
-            <div class="qcap" style="left: 21.5%; top: 38.1%"><span class="fy">2015</span><span class="ft">The NeuroBat Lab opens<br/>at UC Berkeley</span></div>
-<span class="qterr" style="left: 24.3%; top: 61.6%; color: #8FB4E8">Navigation</span><span class="qterr" style="left: 15.5%; top: 49.7%; color: #EDE9DF">Theory &amp; computation</span><span class="qterr" style="left: 67.9%; top: 42.9%; color: #7FD49A">Sociality</span><span class="qterr" style="left: 84.1%; top: 45.1%; color: #B49AE0">Communication &amp;<br/>vocal learning</span><span class="qterr" style="left: 62.8%; top: 14.7%; color: #C9A227">Neurotechnology</span><span class="qterr" style="left: 78.4%; top: 20.3%; color: #E8C34A">Motor</span>
-</div>
+            <div class="qcap" style="left: 21.5%; top: 37.6%"><span class="fy">2015</span><span class="ft">The NeuroBat Lab opens<br/>at UC Berkeley</span></div>
+<span class="qterr" data-fam="nav" style="left: 24.3%; top: 61.3%; color: #8FB4E8" tabindex="0">Navigation</span><span class="qterr" data-fam="soc" style="left: 67.9%; top: 42.9%; color: #7FD49A" tabindex="0">Sociality</span><span class="qterr" data-fam="comm" style="left: 84.1%; top: 45.1%; color: #B49AE0" tabindex="0">Communication &amp;<br/>vocal learning</span><span class="qterr" data-fam="ntech" style="left: 62.8%; top: 14.7%; color: #4FC9C4" tabindex="0">Neurotechnology</span><span class="qterr" data-fam="motor" style="left: 78.4%; top: 20.3%; color: #E8C34A" tabindex="0">Motor</span>
+          </div>
           <div class="ttl-panel">
             <div class="ttl-detail is-active" data-i="0">
               <p class="d">2011 · Navigation · Medial entorhinal cortex</p>
@@ -254,10 +255,10 @@
             <div class="ttl-detail" data-i="2">
               <p class="d">2015<span class="ttl-ftag">Founding milestone</span></p>
               <h3>The NeuroBat Lab opens at UC Berkeley</h3>
-              <p>The gold contour that rings the entire landscape marks this elevation: everything above it was built since. Natural behavior is not generated by one brain area or one neural system, so from here the terrain rises everywhere at once.</p>
+              <p>The trailhead. The gold contour that rings the landscape marks this elevation: everything above it was built since. Natural behavior is not generated by one brain area or one neural system, so from here the terrain rises everywhere at once.</p>
             </div>
             <div class="ttl-detail" data-i="3">
-              <p class="d">2018 · Theory &amp; computation · Model</p>
+              <p class="d">2018 · Navigation · Theory · Model</p>
               <h3>A theory of spatial maps in three dimensions</h3>
               <p>A hierarchical anti-Hebbian network model accounts for the emergence of three-dimensional place, border, and grid cells, and predicts a previously undescribed spatial cell type: plane cells. <a class="tl-cite" href="http://em.rdcu.be/wf/click?upn=lMZy1lernSJ7apc5DgYM8Su62Fc3-2BxM4DR8Sk-2BV7xo0-3D_NoPZom-2BmwicnpX7e8q4-2BnwssVfOalawNIQhZm8gpHkqaIztNDdAqskNpf6DHcBBxJOL4DNIxhlss4oZq-2B1oZ6Gr5NdPPCr2x35vNVSh944n0Wxrd2gll27-2BYyBoAnCAjdWSRJ9sCtLYfQbbB1wYQKck81oTkLu4JjHTcokAau8cw4EUQVhforCD-2BhL5gwPWtIPHjRiJIN0ex0-2B2CSsP2Z-2B2EZ-2Fhrovg-2Fka81DzKDOhpPS2JRL0zJcNe8gNUlXTEdLOHTkjd64whf-2FA0YDc2-2Fgg-3D-3D" target="_blank" rel="noopener">Soman et al., Nature Communications, 2018 →</a></p>
             </div>
@@ -362,10 +363,10 @@
           <div class="tl-item tl-founding" data-reveal>
             <p class="d">2015<span class="ttl-ftag">Founding milestone</span></p>
             <h3>The NeuroBat Lab opens at UC Berkeley</h3>
-            <p>The gold contour on the landscape marks this moment: everything above it was built since.</p>
+            <p>The trailhead: the gold contour on the landscape marks this moment, and everything above it was built since.</p>
           </div>
           <div class="tl-item" data-reveal>
-            <p class="d">2018 · Theory &amp; computation · Model</p>
+            <p class="d">2018 · Navigation · Theory · Model</p>
             <h3>A theory of spatial maps in three dimensions</h3>
             <p>A hierarchical anti-Hebbian network model accounts for the emergence of three-dimensional place, border, and grid cells, and predicts a previously undescribed spatial cell type: plane cells.</p>
           </div>
@@ -704,6 +705,6 @@
     <div class="footer-echo" aria-hidden="true">NeuroBat</div>
   </footer>
 
-  <script src="assets/js/main.js?v=1787766313" defer></script>
+  <script src="assets/js/main.js?v=1787766879" defer></script>
 </body>
 </html>

@@ -700,6 +700,15 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 .qterrain { height: auto; aspect-ratio: 1600 / 1000; }
 .qterrain-img { position: absolute; inset: 0; width: 100%; height: 100%; }
 .qnext .ttl-dot { border-style: dashed; }
+.qglow {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  opacity: 0; transition: opacity 0.45s ease; pointer-events: none;
+}
+.qglow.is-on { opacity: 1; }
+.qterr[data-fam] { pointer-events: auto; cursor: default; transition: opacity 0.3s ease; }
+.qterrain .ttl-fnode { transform: translate(-5px, -94%); width: auto; height: auto; }
+.qflag { display: block; filter: drop-shadow(0 0 7px rgba(232, 195, 74, 0.55)); transition: transform 0.35s var(--ease); transform-origin: 15% 100%; }
+.qterrain .ttl-fnode:hover .qflag, .qterrain .ttl-fnode.is-active .qflag { transform: scale(1.18); }
 .qcap {
   position: absolute; transform: translateX(-50%); text-align: center; pointer-events: none;
   display: flex; flex-direction: column; gap: 2px; width: max-content; max-width: 220px;

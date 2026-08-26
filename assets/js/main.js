@@ -205,6 +205,20 @@
   });
 
   /* ---------- Interactive timeline (research toolkit) ---------- */
+  /* question landscape: hovering a territory name or peak lights its terrain */
+  document.querySelectorAll(".qterrain").forEach((plot) => {
+    const glows = plot.querySelectorAll(".qglow");
+    const set = (fams) => glows.forEach((g) => g.classList.toggle("is-on", fams.includes(g.dataset.fam)));
+    plot.querySelectorAll("[data-fam]").forEach((el) => {
+      if (el.classList.contains("qglow")) return;
+      const fams = el.dataset.fam.split(" ");
+      el.addEventListener("mouseenter", () => set(fams));
+      el.addEventListener("mouseleave", () => set([]));
+      el.addEventListener("focus", () => set(fams));
+      el.addEventListener("blur", () => set([]));
+    });
+  });
+
   document.querySelectorAll(".ttl").forEach((ttl) => {
     const ttlNodes = ttl.querySelectorAll(".ttl-node");
     if (!ttlNodes.length) return;
