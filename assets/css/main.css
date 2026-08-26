@@ -688,7 +688,7 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 .qmap { height: 560px; }
 .qmap .ttl-node.qdot { width: 26px; height: 26px; display: grid; place-items: center; transform: translate(-50%, -50%); }
 .qyr {
-  position: absolute; top: 17px; left: 50%; transform: translateX(-50%);
+  position: absolute; top: 21px; left: 50%; transform: translateX(-50%);
   font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.06em; color: var(--ink-faint);
 }
 .qdot:hover .qyr, .qdot.is-active .qyr { color: var(--nc, var(--gold-bright)); }
@@ -700,14 +700,15 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 .qterrain { height: auto; aspect-ratio: 1600 / 700; }
 .qterrain-img { position: absolute; inset: 0; width: 100%; height: 100%; }
 .qnext .ttl-dot { border-style: dashed; }
-.qridge { transition: opacity 0.4s ease; }
+.qglow.qridge { opacity: 0.5; transition: opacity 0.4s ease; }
+.qglow.qridge.is-on { opacity: 1; }
 .qtrails { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .qtrails path {
   fill: none; stroke: #EDE9DF; stroke-opacity: 0.15; stroke-width: 1.1;
   stroke-dasharray: 3 6; vector-effect: non-scaling-stroke;
   transition: stroke-opacity 0.45s ease, stroke 0.45s ease;
 }
-.qtrails.is-on path { stroke: #E8C34A; stroke-opacity: 0.6; }
+.qtrails.is-on path { stroke: #EDE9DF; stroke-opacity: 0.65; }
 @media (prefers-reduced-motion: no-preference) {
   .qnext .ttl-dot { animation: qpulse 3s ease-in-out infinite; }
   @keyframes qpulse {
@@ -717,7 +718,7 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 }
 .qcap { transition: filter 0.35s ease; }
 .qcap.is-lit .fy, .qcap.is-lit .ft { color: #0a0e1a; text-shadow: 0 0 3px rgba(255, 255, 255, 0.95), 0 0 9px rgba(255, 255, 255, 0.6); }
-.qdot.is-lit .ttl-dot { background: #0a0e1a; border-color: #0a0e1a; box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.45); }
+.qdot.is-lit .ttl-dot { background: var(--nc); border-color: rgba(255, 255, 255, 0.92); box-shadow: 0 0 0 2px rgba(10, 14, 26, 0.75), 0 0 14px var(--nc); transform: scale(1.15); }
 .qdot.is-active .ttl-dot { background: var(--nc); }
 .qdot.is-active.is-lit .ttl-dot, .qdot:hover .ttl-dot { background: var(--nc); border-color: #0a0e1a; box-shadow: 0 0 0 2.5px #0a0e1a, 0 0 16px var(--nc); }
 .qdot.is-lit .qyr { color: #0a0e1a; text-shadow: 0 0 6px rgba(255, 255, 255, 0.35); }
