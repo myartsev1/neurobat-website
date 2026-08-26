@@ -717,9 +717,9 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 }
 .qtrails.is-on path { stroke: #EDE9DF; stroke-opacity: 0.65; }
 .qaxes { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.qaxes line { stroke: rgba(237, 233, 223, 0.32); stroke-width: 1.1; vector-effect: non-scaling-stroke; }
-.qaxes path { fill: rgba(237, 233, 223, 0.45); }
-.qax { position: absolute; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(237, 233, 223, 0.5); pointer-events: none; }
+.qaxes line { stroke: rgba(232, 195, 74, 0.6); stroke-width: 1.1; vector-effect: non-scaling-stroke; }
+.qaxes path { fill: rgba(232, 195, 74, 0.75); }
+.qax { position: absolute; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(232, 195, 74, 0.8); pointer-events: none; }
 .qax-x { transform: rotate(4.6deg); transform-origin: 0 0; }
 .qax-y { transform: rotate(-53deg); transform-origin: 0 0; }
 .qax-tick { font-size: 9.5px; letter-spacing: 0.1em; }
