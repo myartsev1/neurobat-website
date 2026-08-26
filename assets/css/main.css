@@ -687,6 +687,7 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 .tl-founding h3 { color: var(--gold-bright); }
 .qmap { height: 560px; }
 .qmap .ttl-node.qdot { width: 26px; height: 26px; display: grid; place-items: center; transform: translate(-50%, -50%); }
+.qmap .qdot .ttl-dot { background: #0a0e1a; border-color: rgba(237, 233, 223, 0.55); }
 .qyr {
   position: absolute; top: 21px; left: 50%; transform: translateX(-50%);
   font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.06em; color: var(--ink-faint);
