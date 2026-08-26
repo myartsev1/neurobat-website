@@ -210,10 +210,12 @@
     const glows = plot.querySelectorAll(".qglow[data-fam]");
     const labels = plot.querySelectorAll(".qterr[data-fam]");
     const dots = plot.querySelectorAll(".qdot[data-fam]");
+    const outlines = plot.querySelectorAll(".qoutlines path");
     const set = (fams) => {
       glows.forEach((g) => g.classList.toggle("is-on", fams.includes(g.dataset.fam)));
       labels.forEach((l) => l.classList.toggle("is-lit", fams.includes(l.dataset.fam)));
       dots.forEach((d) => d.classList.toggle("is-lit", d.dataset.fam.split(" ").some((f) => fams.includes(f))));
+      outlines.forEach((o) => o.classList.toggle("is-on", fams.includes(o.dataset.fam)));
     };
     plot.querySelectorAll("[data-fam]").forEach((el) => {
       if (el.classList.contains("qglow")) return;

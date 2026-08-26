@@ -703,6 +703,12 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 .qglow.qridge { opacity: 0.5; transition: opacity 0.4s ease; }
 .qglow.qridge.is-on { opacity: 1; }
 .qtrails { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.qoutlines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.qoutlines path {
+  fill: none; stroke-width: 1.7; opacity: 0; vector-effect: non-scaling-stroke;
+  transition: opacity 0.45s ease;
+}
+.qoutlines path.is-on { opacity: 0.9; }
 .qtrails path {
   fill: none; stroke: #EDE9DF; stroke-opacity: 0.15; stroke-width: 1.1;
   stroke-dasharray: 3 6; vector-effect: non-scaling-stroke;
