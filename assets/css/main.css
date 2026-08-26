@@ -723,7 +723,14 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
     50% { box-shadow: 0 0 14px 2px rgba(237, 233, 223, 0.45); }
   }
 }
-.qcap { transition: filter 0.35s ease; }
+.qterrain .ttl-fnode { transform: translate(-6px, -95%); width: auto; height: auto; }
+.qflag { display: block; filter: drop-shadow(0 0 8px rgba(232, 195, 74, 0.55)); transition: transform 0.35s var(--ease); transform-origin: 18% 100%; }
+.qterrain .ttl-fnode:hover .qflag, .qterrain .ttl-fnode.is-active .qflag { transform: scale(1.15); }
+.qcap {
+  position: absolute; transform: translateX(-50%); text-align: center; pointer-events: none;
+  display: flex; flex-direction: column; gap: 3px; width: max-content; max-width: 230px;
+  opacity: 0.95; transition: opacity 0.35s ease;
+}
 .qcap.is-lit .fy, .qcap.is-lit .ft { color: #0a0e1a; text-shadow: 0 0 3px rgba(255, 255, 255, 0.95), 0 0 9px rgba(255, 255, 255, 0.6); }
 .qdot.is-lit .ttl-dot { background: var(--lit, var(--nc)); border-color: rgba(255, 255, 255, 0.92); box-shadow: 0 0 0 2px rgba(10, 14, 26, 0.75), 0 0 14px var(--lit, var(--nc)); transform: scale(1.15); }
 .qdot.is-active .ttl-dot { background: var(--nc); }
@@ -738,14 +745,17 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 .qterr.is-lit { color: #0a0e1a !important; opacity: 1; font-weight: 600; text-shadow: 0 0 3px rgba(255, 255, 255, 0.95), 0 0 9px rgba(255, 255, 255, 0.6), 0 0 18px rgba(255, 255, 255, 0.35); }
 .qdot:hover .qyr { color: #0a0e1a; text-shadow: 0 0 6px rgba(255, 255, 255, 0.35); }
 
+.qterrain .ttl-fnode { transform: translate(-6px, -95%); width: auto; height: auto; }
+.qflag { display: block; filter: drop-shadow(0 0 8px rgba(232, 195, 74, 0.55)); transition: transform 0.35s var(--ease); transform-origin: 18% 100%; }
+.qterrain .ttl-fnode:hover .qflag, .qterrain .ttl-fnode.is-active .qflag { transform: scale(1.15); }
 .qcap {
   position: absolute; transform: translateX(-50%); text-align: center; pointer-events: none;
   display: flex; flex-direction: column; gap: 3px; width: max-content; max-width: 230px;
   opacity: 0.6; transition: opacity 0.35s ease;
 }
 .qcap.is-lit { opacity: 1; }
-.qcap .fy { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: #EDE9DF; text-shadow: 0 1px 5px rgba(8, 11, 20, 0.9); }
-.qcap .ft { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(237, 233, 223, 0.85); line-height: 1.6; text-shadow: 0 1px 5px rgba(8, 11, 20, 0.9); }
+.qcap .fy { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; color: #FFFFFF; text-shadow: 0 0 4px #080b14, 0 0 9px #080b14, 0 1px 2px #080b14; }
+.qcap .ft { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #FFFFFF; line-height: 1.6; text-shadow: 0 0 4px #080b14, 0 0 9px #080b14, 0 1px 2px #080b14; }
 .qmap .ttl-flab {
   left: 50%; bottom: 30px; top: auto; transform: translateX(-50%);
   align-items: center; text-align: center;
