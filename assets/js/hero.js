@@ -32,7 +32,7 @@
   }
 
   /* ---- Place-cell field ---- */
-  const COLORS = ["143,180,232", "127,212,154", "180,154,224", "232,195,74"];
+  const COLORS = ["224,82,74", "127,212,154", "180,154,224", "232,195,74"];
   let cells = [];
   function seedCells() {
     const n = Math.round((W * H) / 16000);

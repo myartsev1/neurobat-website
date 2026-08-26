@@ -10,7 +10,7 @@
   const ctx = canvas.getContext("2d");
 
   const C = {
-    spatial: "143,180,232",
+    spatial: "224,82,74",
     motor: "232,195,74",
     social: "127,212,154",
     comm: "180,154,224",
