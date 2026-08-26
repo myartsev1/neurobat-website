@@ -249,6 +249,17 @@
     });
     plot.addEventListener("mouseleave", () => set([]));
     /* the trailhead flag lights the 2015 contour and its caption */
+    /* the unclimbed summit lights its trails */
+    const nextBtn = plot.querySelector(".qnext");
+    const trails = plot.querySelector(".qtrails");
+    if (nextBtn && trails) {
+      const tOn = (on) => trails.classList.toggle("is-on", on);
+      nextBtn.addEventListener("mouseenter", () => tOn(true));
+      nextBtn.addEventListener("mouseleave", () => tOn(false));
+      nextBtn.addEventListener("focus", () => tOn(true));
+      nextBtn.addEventListener("blur", () => tOn(false));
+      nextBtn.addEventListener("click", () => tOn(true));
+    }
     const flag = plot.querySelector(".ttl-fnode");
     const contour = plot.querySelector(".qridge");
     const cap = plot.querySelector(".qcap");
