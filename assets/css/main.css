@@ -716,6 +716,12 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
   transition: stroke-opacity 0.45s ease, stroke 0.45s ease;
 }
 .qtrails.is-on path { stroke: #EDE9DF; stroke-opacity: 0.65; }
+.qaxes { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.qaxes line { stroke: rgba(237, 233, 223, 0.32); stroke-width: 1.1; vector-effect: non-scaling-stroke; }
+.qaxes path { fill: rgba(237, 233, 223, 0.45); }
+.qax { position: absolute; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(237, 233, 223, 0.5); pointer-events: none; }
+.qax-y { writing-mode: vertical-rl; transform: rotate(180deg); }
+.qax-tick { font-size: 9.5px; letter-spacing: 0.1em; }
 @media (prefers-reduced-motion: no-preference) {
   .qnext .ttl-dot { animation: qpulse 3s ease-in-out infinite; }
   @keyframes qpulse {
@@ -723,8 +729,8 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
     50% { box-shadow: 0 0 14px 2px rgba(237, 233, 223, 0.45); }
   }
 }
-.qterrain .ttl-fnode { transform: translate(-6px, -95%); width: auto; height: auto; }
-.qflag { display: block; filter: drop-shadow(0 0 8px rgba(232, 195, 74, 0.55)); transition: transform 0.35s var(--ease); transform-origin: 18% 100%; }
+.qterrain .ttl-fnode { transform: translate(-50%, -98%); width: auto; height: auto; }
+.qflag { display: block; filter: drop-shadow(0 0 8px rgba(232, 195, 74, 0.55)); transition: transform 0.35s var(--ease); transform-origin: 50% 100%; }
 .qterrain .ttl-fnode:hover .qflag, .qterrain .ttl-fnode.is-active .qflag { transform: scale(1.15); }
 .qcap {
   position: absolute; transform: translateX(-50%); text-align: center; pointer-events: none;
@@ -744,8 +750,8 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 .qterr.is-lit { color: #0a0e1a !important; opacity: 1; font-weight: 600; text-shadow: 0 0 3px rgba(255, 255, 255, 0.95), 0 0 9px rgba(255, 255, 255, 0.6), 0 0 18px rgba(255, 255, 255, 0.35); }
 .qdot:hover .qyr { color: #0a0e1a; text-shadow: 0 0 6px rgba(255, 255, 255, 0.35); }
 
-.qterrain .ttl-fnode { transform: translate(-6px, -95%); width: auto; height: auto; }
-.qflag { display: block; filter: drop-shadow(0 0 8px rgba(232, 195, 74, 0.55)); transition: transform 0.35s var(--ease); transform-origin: 18% 100%; }
+.qterrain .ttl-fnode { transform: translate(-50%, -98%); width: auto; height: auto; }
+.qflag { display: block; filter: drop-shadow(0 0 8px rgba(232, 195, 74, 0.55)); transition: transform 0.35s var(--ease); transform-origin: 50% 100%; }
 .qterrain .ttl-fnode:hover .qflag, .qterrain .ttl-fnode.is-active .qflag { transform: scale(1.15); }
 .qcap {
   position: absolute; transform: translateX(-50%); text-align: center; pointer-events: none;
