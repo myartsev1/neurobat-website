@@ -707,7 +707,7 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 .qglow.is-on { opacity: 1; }
 .qterr[data-fam] { pointer-events: auto; cursor: default; transition: opacity 0.3s ease, color 0.3s ease, text-shadow 0.3s ease; }
 .qterr.is-lit { color: #0a0e1a !important; opacity: 1; font-weight: 600; text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
-.qdot:hover .qyr, .qdot.is-active .qyr { color: #0a0e1a; text-shadow: 0 0 6px rgba(255, 255, 255, 0.35); }
+.qdot:hover .qyr { color: #0a0e1a; text-shadow: 0 0 6px rgba(255, 255, 255, 0.35); }
 .qterrain .ttl-fnode { transform: translate(-5px, -94%); width: auto; height: auto; }
 .qflag { display: block; filter: drop-shadow(0 0 7px rgba(232, 195, 74, 0.55)); transition: transform 0.35s var(--ease); transform-origin: 15% 100%; }
 .qterrain .ttl-fnode:hover .qflag, .qterrain .ttl-fnode.is-active .qflag { transform: scale(1.18); }
