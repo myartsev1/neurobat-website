@@ -698,7 +698,7 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 }
 .qramp { vertical-align: middle; margin: 0 4px; }
 .qmap .ttl-flab {
-  left: 50%; bottom: auto; top: 24px; transform: translateX(-50%);
+  left: 50%; bottom: 30px; top: auto; transform: translateX(-50%);
   align-items: center; text-align: center;
 }
 .ttl-mobile { display: none; }
