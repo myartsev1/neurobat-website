@@ -208,7 +208,11 @@
   /* question landscape: hovering a territory name or peak lights its terrain */
   document.querySelectorAll(".qterrain").forEach((plot) => {
     const glows = plot.querySelectorAll(".qglow");
-    const set = (fams) => glows.forEach((g) => g.classList.toggle("is-on", fams.includes(g.dataset.fam)));
+    const labels = plot.querySelectorAll(".qterr[data-fam]");
+    const set = (fams) => {
+      glows.forEach((g) => g.classList.toggle("is-on", fams.includes(g.dataset.fam)));
+      labels.forEach((l) => l.classList.toggle("is-lit", fams.includes(l.dataset.fam)));
+    };
     plot.querySelectorAll("[data-fam]").forEach((el) => {
       if (el.classList.contains("qglow")) return;
       const fams = el.dataset.fam.split(" ");
