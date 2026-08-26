@@ -346,10 +346,10 @@ body.is-loaded .hero-scroll { opacity: 1; }
 @media (max-width: 620px) { .dim-chips-row { grid-template-columns: 1fr; } }
 .dim-chips-row .dim-chip { flex-direction: column; align-items: flex-start; gap: 12px; padding: 22px 22px 24px; }
 .dim-chips-row .dim-chip:hover, .dim-chips-row .dim-chip[aria-pressed="true"] { transform: translateY(-5px); }
-.dim-chip-all { grid-column: 1 / -1; flex-direction: row !important; align-items: baseline !important; border-color: rgba(201, 162, 39, 0.3); background: linear-gradient(120deg, rgba(224,82,74,0.05), rgba(232,195,74,0.05), rgba(127,212,154,0.05), rgba(180,154,224,0.05)); }
+.dim-chip-all { grid-column: 1 / -1; flex-direction: row !important; align-items: baseline !important; border-color: rgba(201, 162, 39, 0.3); background: linear-gradient(120deg, rgba(224,108,66,0.05), rgba(232,195,74,0.05), rgba(127,212,154,0.05), rgba(180,154,224,0.05)); }
 .dim-chip-all .dim-t { color: var(--gold-bright); font-style: italic; }
 .dim-chip-all:hover, .dim-chip-all[aria-pressed="true"] { border-color: rgba(232, 195, 74, 0.55) !important; }
-.dot-all { background: conic-gradient(#E0524A, #E8C34A, #7FD49A, #B49AE0, #E0524A); }
+.dot-all { background: conic-gradient(#E06C42, #E8C34A, #7FD49A, #B49AE0, #E06C42); }
 .dim-chip {
   text-align: left; display: flex; align-items: baseline; gap: 18px; padding: 20px 24px;
   border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,0.015);
@@ -359,7 +359,7 @@ body.is-loaded .hero-scroll { opacity: 1; }
 .dim-chip .dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; transform: translateY(-1px); }
 .dim-chip .dim-t { display: block; font-family: var(--font-display); font-weight: 500; font-size: 18.5px; }
 .dim-chip .dim-p { display: block; font-size: 14.5px; color: var(--ink-dim); line-height: 1.55; margin-top: 3px; }
-.dim-chip[data-d="spatial"]:hover, .dim-chip[data-d="spatial"][aria-pressed="true"] { border-color: rgba(224,82,74,0.55); }
+.dim-chip[data-d="spatial"]:hover, .dim-chip[data-d="spatial"][aria-pressed="true"] { border-color: rgba(224,108,66,0.55); }
 .dim-chip[data-d="motor"]:hover, .dim-chip[data-d="motor"][aria-pressed="true"] { border-color: rgba(232,195,74,0.55); }
 .dim-chip[data-d="social"]:hover, .dim-chip[data-d="social"][aria-pressed="true"] { border-color: rgba(127,212,154,0.55); }
 .dim-chip[data-d="comm"]:hover, .dim-chip[data-d="comm"][aria-pressed="true"] { border-color: rgba(180,154,224,0.55); }
