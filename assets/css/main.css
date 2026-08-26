@@ -702,7 +702,7 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 .qnext .ttl-dot { border-style: dashed; }
 .qridge { transition: opacity 0.4s ease; }
 .qcap { transition: filter 0.35s ease; }
-.qcap.is-lit .fy, .qcap.is-lit .ft { color: #E8C34A; }
+.qcap.is-lit .fy, .qcap.is-lit .ft { color: #0a0e1a; text-shadow: 0 0 3px rgba(255, 255, 255, 0.95), 0 0 9px rgba(255, 255, 255, 0.6); }
 .qdot.is-lit .ttl-dot { background: #0a0e1a; border-color: #0a0e1a; box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.45); }
 .qdot.is-active .ttl-dot { background: var(--nc); }
 .qdot.is-active.is-lit .ttl-dot, .qdot:hover .ttl-dot { background: var(--nc); border-color: #0a0e1a; box-shadow: 0 0 0 2.5px #0a0e1a, 0 0 16px var(--nc); }
@@ -718,14 +718,12 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 
 .qcap {
   position: absolute; transform: translateX(-50%); text-align: center; pointer-events: none;
-  display: flex; flex-direction: column; gap: 2px; width: max-content; max-width: 230px;
-  background: rgba(8, 11, 20, 0.86); border: 1px solid rgba(201, 162, 39, 0.35);
-  border-radius: 10px; padding: 8px 14px; backdrop-filter: blur(2px);
-  opacity: 0; transition: opacity 0.35s ease;
+  display: flex; flex-direction: column; gap: 3px; width: max-content; max-width: 230px;
+  opacity: 0.6; transition: opacity 0.35s ease;
 }
-.qcap.is-lit { opacity: 1; border-color: rgba(232, 195, 74, 0.9); box-shadow: 0 0 18px -4px rgba(232, 195, 74, 0.5); }
+.qcap.is-lit { opacity: 1; }
 .qcap .fy { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--gold-bright); }
-.qcap .ft { font-family: var(--font-display); font-style: italic; font-size: 12.5px; line-height: 1.35; color: var(--ink-dim); }
+.qcap .ft { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(201, 162, 39, 0.8); line-height: 1.6; }
 .qmap .ttl-flab {
   left: 50%; bottom: 30px; top: auto; transform: translateX(-50%);
   align-items: center; text-align: center;
