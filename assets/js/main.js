@@ -206,7 +206,7 @@
 
   /* ---------- Interactive timeline (research toolkit) ---------- */
   /* question landscape: hovering a territory name or peak lights its terrain */
-  const QFAMC = { nav: "#E06C42", soc: "#7FD49A", comm: "#B49AE0", motor: "#E8C34A", ntech: "#4FC9C4" };
+  const QFAMC = { nav: "#8FB4E8", soc: "#7FD49A", comm: "#B49AE0", motor: "#E07B4A" };
   document.querySelectorAll(".qterrain").forEach((plot) => {
     const glows = plot.querySelectorAll(".qglow[data-fam]");
     const labels = plot.querySelectorAll(".qterr[data-fam]");

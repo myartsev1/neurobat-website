@@ -21,7 +21,7 @@ GitHub Pages redeploys automatically in about a minute. To undo the last change:
 - NO em dashes (—) anywhere. Use commas, colons, periods, or middots (·). En dashes only for year ranges (2019–21).
 - Headings are sentence case with a period ("Tools that follow the behavior.").
 - Citations: `Author et al., Full Journal Name, Year →` with comma before year, full journal names, `.tl-cite` class (add `.block` for stacked rows).
-- Palette: navy #080b14 bg, ivory #EDE9DF, gold #C9A227 / bright #E8C34A. Dimension colors: spatial orange-red #E06C42, social green #7FD49A, communication violet #B49AE0, motor gold #E8C34A.
+- Palette: navy #080b14 bg, ivory #EDE9DF, gold #C9A227 / bright #E8C34A. Dimension colors: spatial sky blue #8FB4E8 (landscape terrain bakes deep blue #5B8AD6), social green #7FD49A, communication violet #B49AE0, motor ember #E07B4A. Gold #E8C34A is reserved for founding/brand accents.
 - Fonts: Fraunces (display), Inter (body), JetBrains Mono (labels). Body has `font-optical-sizing: none` on purpose.
 - Never present the research as separate pillars: one behavior, many dimensions.
 
