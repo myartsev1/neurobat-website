@@ -700,12 +700,12 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 .qterrain { height: auto; aspect-ratio: 1600 / 1000; }
 .qterrain-img { position: absolute; inset: 0; width: 100%; height: 100%; }
 .qnext .ttl-dot { border-style: dashed; }
-.qcontour-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.qcontour { transition: stroke 0.35s ease, stroke-width 0.35s ease, filter 0.35s ease; }
-.qcontour.is-lit { stroke: #E8C34A; stroke-opacity: 1; stroke-width: 2.4; filter: drop-shadow(0 0 6px rgba(232, 195, 74, 0.7)); }
+.qridge { transition: opacity 0.4s ease; }
 .qcap { transition: filter 0.35s ease; }
 .qcap.is-lit .fy, .qcap.is-lit .ft { color: #E8C34A; }
 .qdot.is-lit .ttl-dot { background: #0a0e1a; border-color: #0a0e1a; box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.45); }
+.qdot.is-active .ttl-dot { background: var(--nc); }
+.qdot.is-active.is-lit .ttl-dot, .qdot:hover .ttl-dot { background: var(--nc); border-color: #0a0e1a; box-shadow: 0 0 0 2.5px #0a0e1a, 0 0 16px var(--nc); }
 .qdot.is-lit .qyr { color: #0a0e1a; text-shadow: 0 0 6px rgba(255, 255, 255, 0.35); }
 .qglow {
   position: absolute; inset: 0; width: 100%; height: 100%;
@@ -713,7 +713,7 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 }
 .qglow.is-on { opacity: 1; }
 .qterr[data-fam] { pointer-events: auto; cursor: default; transition: opacity 0.3s ease, color 0.3s ease, text-shadow 0.3s ease; }
-.qterr.is-lit { color: #0a0e1a !important; opacity: 1; font-weight: 600; text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
+.qterr.is-lit { color: #0a0e1a !important; opacity: 1; font-weight: 600; text-shadow: 0 0 3px rgba(255, 255, 255, 0.95), 0 0 9px rgba(255, 255, 255, 0.6), 0 0 18px rgba(255, 255, 255, 0.35); }
 .qdot:hover .qyr { color: #0a0e1a; text-shadow: 0 0 6px rgba(255, 255, 255, 0.35); }
 .qterrain .ttl-fnode { transform: translate(-5px, -94%); width: auto; height: auto; }
 .qflag { display: block; filter: drop-shadow(0 0 7px rgba(232, 195, 74, 0.55)); transition: transform 0.35s var(--ease); transform-origin: 15% 100%; }

@@ -207,7 +207,7 @@
   /* ---------- Interactive timeline (research toolkit) ---------- */
   /* question landscape: hovering a territory name or peak lights its terrain */
   document.querySelectorAll(".qterrain").forEach((plot) => {
-    const glows = plot.querySelectorAll(".qglow");
+    const glows = plot.querySelectorAll(".qglow[data-fam]");
     const labels = plot.querySelectorAll(".qterr[data-fam]");
     const dots = plot.querySelectorAll(".qdot[data-fam]");
     const set = (fams) => {
@@ -243,18 +243,18 @@
       const y = Math.max(0, Math.min(199, ((e.clientY - r.top) / r.height) * 200)) | 0;
       const fams = [];
       hit.forEach((h) => {
-        if (h.cx.getImageData(x, y, 1, 1).data[3] > 70) fams.push(h.fam);
+        if (h.cx.getImageData(x, y, 1, 1).data[3] > 45) fams.push(h.fam);
       });
       set(fams);
     });
     plot.addEventListener("mouseleave", () => set([]));
     /* the trailhead flag lights the 2015 contour and its caption */
     const flag = plot.querySelector(".ttl-fnode");
-    const contour = plot.querySelector(".qcontour");
+    const contour = plot.querySelector(".qridge");
     const cap = plot.querySelector(".qcap");
     if (flag && contour) {
       const lit = (on) => {
-        contour.classList.toggle("is-lit", on);
+        contour.classList.toggle("is-on", on);
         if (cap) cap.classList.toggle("is-lit", on);
       };
       flag.addEventListener("mouseenter", () => lit(true));
