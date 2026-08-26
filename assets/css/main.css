@@ -685,20 +685,21 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
   font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(201, 162, 39, 0.55);
 }
 .tl-founding h3 { color: var(--gold-bright); }
-.qmap { height: 500px; }
+.qmap { height: 560px; }
 .qmap .ttl-node.qdot { width: 26px; height: 26px; display: grid; place-items: center; transform: translate(-50%, -50%); }
-.qrow {
-  position: absolute; left: 0; width: 18%; text-align: right; transform: translateY(-50%);
-  font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--ink-faint); line-height: 1.4;
+.qyr {
+  position: absolute; top: 17px; left: 50%; transform: translateX(-50%);
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.06em; color: var(--ink-faint);
 }
-.qtick {
-  position: absolute; top: 96.5%; transform: translateX(-50%);
-  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; color: rgba(237, 233, 223, 0.4);
+.qdot:hover .qyr, .qdot.is-active .qyr { color: var(--nc, var(--gold-bright)); }
+.qterr {
+  position: absolute; transform: translateY(-50%); opacity: 0.5; pointer-events: none;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; line-height: 1.6;
 }
+.qramp { vertical-align: middle; margin: 0 4px; }
 .qmap .ttl-flab {
-  left: 18px; bottom: auto; top: 50%; transform: translateY(-50%);
-  align-items: flex-start; text-align: left;
+  left: 50%; bottom: auto; top: 24px; transform: translateX(-50%);
+  align-items: center; text-align: center;
 }
 .ttl-mobile { display: none; }
 @media (max-width: 900px) {
