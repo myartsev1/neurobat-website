@@ -697,6 +697,12 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; line-height: 1.6;
 }
 .qramp { vertical-align: middle; margin: 0 4px; }
+.qcap {
+  position: absolute; transform: translateX(-50%); text-align: center; pointer-events: none;
+  display: flex; flex-direction: column; gap: 2px; width: max-content; max-width: 220px;
+}
+.qcap .fy { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--gold-bright); }
+.qcap .ft { font-family: var(--font-display); font-style: italic; font-size: 12.5px; line-height: 1.35; color: var(--ink-dim); }
 .qmap .ttl-flab {
   left: 50%; bottom: 30px; top: auto; transform: translateX(-50%);
   align-items: center; text-align: center;
