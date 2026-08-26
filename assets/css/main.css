@@ -685,6 +685,21 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
   font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(201, 162, 39, 0.55);
 }
 .tl-founding h3 { color: var(--gold-bright); }
+.qmap { height: 500px; }
+.qmap .ttl-node.qdot { width: 26px; height: 26px; display: grid; place-items: center; transform: translate(-50%, -50%); }
+.qrow {
+  position: absolute; left: 0; width: 18%; text-align: right; transform: translateY(-50%);
+  font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-faint); line-height: 1.4;
+}
+.qtick {
+  position: absolute; top: 96.5%; transform: translateX(-50%);
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; color: rgba(237, 233, 223, 0.4);
+}
+.qmap .ttl-flab {
+  left: 18px; bottom: auto; top: 50%; transform: translateY(-50%);
+  align-items: flex-start; text-align: left;
+}
 .ttl-mobile { display: none; }
 @media (max-width: 900px) {
   .ttl { display: none; }
