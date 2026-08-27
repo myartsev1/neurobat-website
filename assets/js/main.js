@@ -256,6 +256,7 @@
       else img.addEventListener("load", build);
     });
     plot.addEventListener("mousemove", (e) => {
+      if (plot.classList.contains("is-evolving")) return;
       if (e.target.closest("[data-fam], .ttl-fnode")) return;
       const r = plot.getBoundingClientRect();
       const cx = ((e.clientX - r.left) / r.width) * 1600;
@@ -289,6 +290,81 @@
       nextBtn.addEventListener("focus", () => tOn(true));
       nextBtn.addEventListener("blur", () => tOn(false));
       nextBtn.addEventListener("click", () => tOn(true));
+    }
+    /* the landscape grows year by year on first sight */
+    const frames = [...plot.querySelectorAll(".qevo")];
+    if (frames.length && !reduced) {
+      plot.classList.add("is-evolving");
+      const counter = plot.querySelector(".qevo-year");
+      const nodes = [...plot.querySelectorAll(".ttl-node")];
+      const capEl = plot.querySelector(".qcap");
+      const terrEls = [...plot.querySelectorAll(".qterr")];
+      const trailsEl = plot.querySelector(".qtrails");
+      const ridgeEl = plot.querySelector(".qglow.qridge");
+      const yearOf = (n) => {
+        if (n.classList.contains("ttl-fnode")) return 2015;
+        const t = n.querySelector(".qyr");
+        if (!t || /\?/.test(t.textContent)) return 9999;
+        const y = parseInt(t.textContent, 10);
+        return isNaN(y) ? 9999 : y;
+      };
+      const famYear = {};
+      nodes.forEach((n) => {
+        (n.dataset.fam || "").split(" ").forEach((f) => {
+          if (!f) return;
+          const y = yearOf(n);
+          if (!(f in famYear) || y < famYear[f]) famYear[f] = y;
+        });
+      });
+      const baseImg = plot.querySelector(".qterrain-img");
+      const hidden = [...nodes, capEl, trailsEl, ridgeEl, baseImg, ...terrEls].filter(Boolean);
+      hidden.forEach((el) => el.classList.add("qhid"));
+      const steps = [2011, 2013, 2015, 2018, 2019, 2021, 2022, 2023, 2024, 2025, 2026];
+      const frameFor = {};
+      frames.forEach((f) => { frameFor[f.dataset.year] = f; });
+      let started = false;
+      const run = () => {
+        if (started) return;
+        started = true;
+        let i = 0;
+        counter.classList.add("is-shown");
+        const tick = () => {
+          if (i >= steps.length) {
+            setTimeout(() => {
+              trailsEl && trailsEl.classList.remove("qhid");
+              ridgeEl && ridgeEl.classList.remove("qhid");
+              nodes.forEach((n) => n.classList.remove("qhid"));
+              counter.classList.remove("is-shown");
+              frames.forEach((f) => f.classList.remove("is-shown"));
+              setTimeout(() => {
+                plot.classList.remove("is-evolving");
+                plot.dispatchEvent(new CustomEvent("qevo-done", { bubbles: true }));
+              }, 600);
+            }, 450);
+            return;
+          }
+          const y = steps[i];
+          counter.textContent = String(y);
+          if (frameFor[y]) frameFor[y].classList.add("is-shown");
+          if (y >= 2026 && baseImg) baseImg.classList.remove("qhid");
+          nodes.forEach((n) => { if (yearOf(n) <= y) n.classList.remove("qhid"); });
+          if (y >= 2015 && capEl) capEl.classList.remove("qhid");
+          terrEls.forEach((t) => { if ((famYear[t.dataset.fam] || 9999) <= y) t.classList.remove("qhid"); });
+          i += 1;
+          setTimeout(tick, 560);
+        };
+        tick();
+      };
+      const eio = new IntersectionObserver(([en]) => {
+        if (en.isIntersecting) { eio.disconnect(); run(); }
+      }, { threshold: 0.45 });
+      eio.observe(plot);
+      /* safety net: never leave the landscape hidden if the observer misfires */
+      const poll = setInterval(() => {
+        if (started) { clearInterval(poll); return; }
+        const r = plot.getBoundingClientRect();
+        if (r.top < innerHeight * 0.75 && r.bottom > innerHeight * 0.25) { eio.disconnect(); run(); clearInterval(poll); }
+      }, 1200);
     }
     const flag = plot.querySelector(".ttl-fnode");
     const contour = plot.querySelector(".qridge");
@@ -355,7 +431,11 @@
           ttlSet(i);
         }, 750);
       }, { threshold: 0.6 });
-      wio.observe(ttl);
+      if (ttl.querySelector(".qterrain .qevo")) {
+        ttl.addEventListener("qevo-done", () => wio.observe(ttl), { once: true });
+      } else {
+        wio.observe(ttl);
+      }
     }
   });
 
