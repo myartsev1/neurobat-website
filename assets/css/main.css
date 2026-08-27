@@ -379,13 +379,12 @@ body.is-loaded .hero-scroll { opacity: 1; }
 .tw-pulse { transform-box: fill-box; transform-origin: center; animation: twping 3.4s cubic-bezier(0.2, 0.6, 0.4, 1) infinite; }
 @keyframes twping { 0% { transform: scale(0.3); opacity: 0.9; } 75% { transform: scale(1.6); opacity: 0; } 100% { transform: scale(1.6); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .tw-pulse { animation: none; opacity: 0.25; } }
-.twc { position: absolute; left: 50%; top: 48.6%; transform: translate(-50%, -50%); width: min(330px, 36%); text-align: center; pointer-events: none; }
-.twc-rest { padding-top: 66px; display: flex; flex-direction: column; gap: 6px; transition: opacity 0.35s ease; }
+.twc { position: absolute; left: 50%; top: 48.6%; transform: translate(-50%, -50%); width: min(264px, 28%); height: 232px; text-align: center; pointer-events: none; }
+.twc-rest { padding-top: 140px; display: flex; flex-direction: column; gap: 6px; transition: opacity 0.35s ease; }
 .twc-live { opacity: 0; position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 7px; transition: opacity 0.35s ease; }
 .tool-wheel.has-active .twc-rest { opacity: 0; }
 .tool-wheel.has-active .twc-live { opacity: 1; }
-.twc-k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-bright); }
-.twc-n { font-family: var(--font-display); font-style: italic; font-size: 17.5px; line-height: 1.35; color: var(--ink); }
+.twc-n { font-family: var(--font-display); font-style: italic; font-size: 16px; line-height: 1.4; color: var(--ink); }
 .twc-s { font-size: 12.5px; line-height: 1.55; color: var(--ink-dim); }
 .tw-legend { justify-content: center; margin-top: clamp(2px, 1vw, 10px); }
 @media (max-width: 720px) { .tw-legend { display: none; } }

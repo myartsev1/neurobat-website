@@ -329,13 +329,10 @@
   const twheel = document.querySelector(".tool-wheel");
   if (twheel) {
     const live = twheel.querySelector(".twc-live");
-    const tk = live.querySelector(".twc-k");
     const tn = live.querySelector(".twc-n");
     const ts = live.querySelector(".twc-s");
     twheel.querySelectorAll(".twg").forEach((g) => {
       const on = () => {
-        tk.textContent = g.dataset.b;
-        tk.style.color = g.dataset.col;
         tn.textContent = g.dataset.t;
         ts.textContent = g.dataset.d;
         twheel.classList.add("has-active");
