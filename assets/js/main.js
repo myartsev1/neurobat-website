@@ -250,10 +250,17 @@
       const x = Math.max(0, Math.min(319, ((e.clientX - r.left) / r.width) * 320)) | 0;
       const y = Math.max(0, Math.min(199, ((e.clientY - r.top) / r.height) * 200)) | 0;
       const fams = [];
+      let best = null;
+      let bestA = 0;
       hit.forEach((h) => {
-        if (h.cx.getImageData(x, y, 1, 1).data[3] > 45) fams.push(h.fam);
+        const a = h.cx.getImageData(x, y, 1, 1).data[3];
+        if (a > 45) {
+          fams.push(h.fam);
+          if (a > bestA) { bestA = a; best = h.fam; }
+        }
       });
       set(fams);
+      plot.dispatchEvent(new CustomEvent("qfam", { detail: best }));
     });
     plot.addEventListener("mouseleave", () => set([]));
     /* the trailhead flag lights the 2015 contour and its caption */
@@ -310,6 +317,12 @@
       q.addEventListener("focus", showQ);
       q.addEventListener("click", showQ);
     });
+    const qplot = ttl.querySelector(".qterrain");
+    if (qplot) {
+      qplot.addEventListener("qfam", (e) => {
+        if (e.detail) { stopWalk(); ttlSet("t-" + e.detail); }
+      });
+    }
     /* rest on the newest real entry by default... */
     ttlSet(ttlNodes.length - 2);
     /* ...then, on first sight, walk the whole history once */
