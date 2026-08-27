@@ -296,13 +296,11 @@
     if (frames.length && !reduced) {
       plot.classList.add("is-evolving");
       const counter = plot.querySelector(".qevo-year");
-      const replayBtn = plot.querySelector(".qreplay");
       const nodes = [...plot.querySelectorAll(".ttl-node")];
       const capEl = plot.querySelector(".qcap");
       const terrEls = [...plot.querySelectorAll(".qterr")];
       const trailsEl = plot.querySelector(".qtrails");
       const ridgeEl = plot.querySelector(".qglow.qridge");
-      const baseImg = plot.querySelector(".qterrain-img");
       const yearOf = (n) => {
         if (n.classList.contains("ttl-fnode")) return 2015;
         const t = n.querySelector(".qyr");
@@ -318,75 +316,54 @@
           if (!(f in famYear) || y < famYear[f]) famYear[f] = y;
         });
       });
+      const baseImg = plot.querySelector(".qterrain-img");
       const hidden = [...nodes, capEl, trailsEl, ridgeEl, baseImg, ...terrEls].filter(Boolean);
+      hidden.forEach((el) => el.classList.add("qhid"));
       const steps = [2011, 2013, 2015, 2018, 2019, 2021, 2022, 2023, 2024, 2025, 2026];
       const frameFor = {};
       frames.forEach((f) => { frameFor[f.dataset.year] = f; });
       let started = false;
-      let running = false;
-      const runSeq = () => {
-        if (running) return;
+      const run = () => {
+        if (started) return;
         started = true;
-        running = true;
-        plot.classList.add("is-evolving");
-        if (replayBtn) replayBtn.classList.remove("is-ready");
-        hidden.forEach((el) => el.classList.add("qhid"));
-        frames.forEach((f) => f.classList.remove("is-shown"));
-        nodes.forEach((n) => n.classList.remove("is-lit"));
         let i = 0;
+        counter.classList.add("is-shown");
         const tick = () => {
-          if (i === 0) counter.classList.add("is-shown");
           if (i >= steps.length) {
             setTimeout(() => {
               trailsEl && trailsEl.classList.remove("qhid");
               ridgeEl && ridgeEl.classList.remove("qhid");
-              nodes.forEach((n) => { n.classList.remove("qhid"); n.classList.remove("is-lit"); n.style.removeProperty("--lit"); });
+              nodes.forEach((n) => n.classList.remove("qhid"));
               counter.classList.remove("is-shown");
               frames.forEach((f) => f.classList.remove("is-shown"));
               setTimeout(() => {
                 plot.classList.remove("is-evolving");
-                running = false;
-                if (replayBtn) replayBtn.classList.add("is-ready");
                 plot.dispatchEvent(new CustomEvent("qevo-done", { bubbles: true }));
-              }, 700);
-            }, 600);
+              }, 600);
+            }, 450);
             return;
           }
           const y = steps[i];
           counter.textContent = String(y);
           if (frameFor[y]) frameFor[y].classList.add("is-shown");
           if (y >= 2026 && baseImg) baseImg.classList.remove("qhid");
-          nodes.forEach((n) => {
-            const ny = yearOf(n);
-            if (ny > y) return;
-            if (n.classList.contains("qhid")) {
-              n.classList.remove("qhid");
-              if (ny === y && n.dataset.fam) {
-                const f0 = n.dataset.fam.split(" ")[0];
-                if (QFAMC[f0]) {
-                  n.style.setProperty("--lit", QFAMC[f0]);
-                  n.classList.add("is-lit");
-                  setTimeout(() => { n.classList.remove("is-lit"); n.style.removeProperty("--lit"); }, 1600);
-                }
-              }
-            }
-          });
+          nodes.forEach((n) => { if (yearOf(n) <= y) n.classList.remove("qhid"); });
           if (y >= 2015 && capEl) capEl.classList.remove("qhid");
           terrEls.forEach((t) => { if ((famYear[t.dataset.fam] || 9999) <= y) t.classList.remove("qhid"); });
           i += 1;
-          setTimeout(tick, 700);
+          setTimeout(tick, 560);
         };
-        setTimeout(tick, running && started ? 400 : 0);
+        tick();
       };
-      if (replayBtn) replayBtn.addEventListener("click", runSeq);
       const eio = new IntersectionObserver(([en]) => {
-        if (en.isIntersecting) { eio.disconnect(); runSeq(); }
+        if (en.isIntersecting) { eio.disconnect(); run(); }
       }, { threshold: 0.45 });
       eio.observe(plot);
+      /* safety net: never leave the landscape hidden if the observer misfires */
       const poll = setInterval(() => {
         if (started) { clearInterval(poll); return; }
         const r = plot.getBoundingClientRect();
-        if (r.top < innerHeight * 0.75 && r.bottom > innerHeight * 0.25) { eio.disconnect(); runSeq(); clearInterval(poll); }
+        if (r.top < innerHeight * 0.75 && r.bottom > innerHeight * 0.25) { eio.disconnect(); run(); clearInterval(poll); }
       }, 1200);
     }
     const flag = plot.querySelector(".ttl-fnode");
@@ -454,7 +431,9 @@
           ttlSet(i);
         }, 750);
       }, { threshold: 0.6 });
-      if (!ttl.querySelector(".qterrain .qevo")) {
+      if (ttl.querySelector(".qterrain .qevo")) {
+        ttl.addEventListener("qevo-done", () => wio.observe(ttl), { once: true });
+      } else {
         wio.observe(ttl);
       }
     }
