@@ -295,6 +295,7 @@
     const frames = [...plot.querySelectorAll(".qevo")];
     if (frames.length && !reduced) {
       const counter = plot.querySelector(".qevo-year");
+      const replayBtn = plot.querySelector(".qreplay");
       const nodes = [...plot.querySelectorAll(".ttl-node")];
       const capEl = plot.querySelector(".qcap");
       const terrEls = [...plot.querySelectorAll(".qterr")];
@@ -321,36 +322,49 @@
       const STEP = 430;
       plot.classList.add("is-evolving");
       hidden.forEach((el) => el.classList.add("qhid"));
+      let running = false;
       let settled = false;
-      /* whatever happens, the landscape ends up complete and interactive */
+      const unlight = () => nodes.forEach((n) => { n.classList.remove("is-lit"); n.style.removeProperty("--lit"); });
       const settle = () => {
         if (settled) return;
         settled = true;
+        /* the 2026 frame is pixel-identical to the base terrain, so this swap is invisible */
         baseImg && baseImg.classList.remove("qhid");
-        frames.forEach((f) => { f.style.transition = "none"; f.classList.remove("is-shown"); });
-        counter.classList.remove("is-shown");
         requestAnimationFrame(() => {
-          frames.forEach((f) => f.style.removeProperty("transition"));
+          frames.forEach((f) => { f.style.transition = "none"; f.classList.remove("is-shown"); });
+          counter.classList.remove("is-shown");
           chrome.forEach((el) => el.classList.remove("qhid"));
-          plot.classList.remove("is-evolving");
-          plot.dispatchEvent(new CustomEvent("qevo-done", { bubbles: true }));
+          unlight();
+          requestAnimationFrame(() => {
+            frames.forEach((f) => f.style.removeProperty("transition"));
+            plot.classList.remove("is-evolving");
+            running = false;
+            if (replayBtn) replayBtn.classList.add("is-ready");
+          });
         });
       };
-      const framesReady = () => Promise.all(frames.map((f) => {
-        if (f.complete && f.naturalWidth) return Promise.resolve(true);
-        if (f.decode) return f.decode().then(() => true, () => false);
-        return new Promise((r) => { f.addEventListener("load", () => r(true), { once: true }); f.addEventListener("error", () => r(false), { once: true }); });
-      })).then((all) => all.every(Boolean));
       const play = () => {
         counter.classList.add("is-shown");
         let i = 0;
         const tick = () => {
-          if (i >= frames.length) { settle(); return; }
+          if (i >= frames.length) {
+            setTimeout(settle, 1450);   /* let the last crossfade finish before the handoff */
+            return;
+          }
           const f = frames[i];
           const y = parseInt(f.dataset.year, 10);
           counter.textContent = String(y);
           f.classList.add("is-shown");
-          nodes.forEach((n) => { if (yearOf(n) <= y) n.classList.remove("qhid"); });
+          nodes.forEach((n) => {
+            if (yearOf(n) > y || !n.classList.contains("qhid")) return;
+            n.classList.remove("qhid");
+            const f0 = (n.dataset.fam || "").split(" ")[0];
+            if (f0 && QFAMC[f0]) {
+              n.style.setProperty("--lit", QFAMC[f0]);
+              n.classList.add("is-lit");
+              setTimeout(() => { n.classList.remove("is-lit"); n.style.removeProperty("--lit"); }, 1700);
+            }
+          });
           if (y >= 2015 && capEl) capEl.classList.remove("qhid");
           terrEls.forEach((t) => { if ((famYear[t.dataset.fam] || 9999) <= y) t.classList.remove("qhid"); });
           i += 1;
@@ -358,13 +372,33 @@
         };
         tick();
       };
+      const startRun = () => {
+        if (running) return;
+        running = true;
+        settled = false;
+        plot.classList.add("is-evolving");
+        if (replayBtn) replayBtn.classList.remove("is-ready");
+        hidden.forEach((el) => el.classList.add("qhid"));
+        unlight();
+        frames.forEach((f) => { f.style.transition = "none"; f.classList.remove("is-shown"); });
+        requestAnimationFrame(() => {
+          frames.forEach((f) => f.style.removeProperty("transition"));
+          setTimeout(play, 350);
+        });
+      };
+      const framesReady = () => Promise.all(frames.map((f) => {
+        if (f.complete && f.naturalWidth) return Promise.resolve(true);
+        if (f.decode) return f.decode().then(() => true, () => false);
+        return new Promise((r) => { f.addEventListener("load", () => r(true), { once: true }); f.addEventListener("error", () => r(false), { once: true }); });
+      })).then((all) => all.every(Boolean));
       let started = false;
       const start = () => {
         if (started) return;
         started = true;
         Promise.race([framesReady(), new Promise((r) => setTimeout(() => r(false), 6000))])
-          .then((ok) => { if (ok) play(); else settle(); });
+          .then((ok) => { if (ok) startRun(); else settle(); });
       };
+      if (replayBtn) replayBtn.addEventListener("click", startRun);
       const eio = new IntersectionObserver(([en]) => {
         if (en.isIntersecting) { eio.disconnect(); start(); }
       }, { threshold: 0.4 });
@@ -440,9 +474,7 @@
           ttlSet(i);
         }, 750);
       }, { threshold: 0.6 });
-      if (ttl.querySelector(".qterrain .qevo")) {
-        ttl.addEventListener("qevo-done", () => wio.observe(ttl), { once: true });
-      } else {
+      if (!ttl.querySelector(".qterrain .qevo")) {
         wio.observe(ttl);
       }
     }
