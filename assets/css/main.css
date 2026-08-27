@@ -380,7 +380,7 @@ body.is-loaded .hero-scroll { opacity: 1; }
 @keyframes twping { 0% { transform: scale(0.3); opacity: 0.9; } 75% { transform: scale(1.6); opacity: 0; } 100% { transform: scale(1.6); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .tw-pulse { animation: none; opacity: 0.25; } }
 .twc { position: absolute; left: 50%; top: 48.6%; transform: translate(-50%, -50%); width: min(264px, 28%); height: 232px; text-align: center; pointer-events: none; }
-.twc-rest { padding-top: 140px; display: flex; flex-direction: column; gap: 6px; transition: opacity 0.35s ease; }
+.twc-rest { padding-top: 129px; display: flex; flex-direction: column; gap: 6px; transition: opacity 0.35s ease; }
 .twc-live { opacity: 0; position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 7px; transition: opacity 0.35s ease; }
 .tool-wheel.has-active .twc-rest { opacity: 0; }
 .tool-wheel.has-active .twc-live { opacity: 1; }
