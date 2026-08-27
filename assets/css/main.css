@@ -757,7 +757,7 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 .is-evolving .qterrain-img,
 .is-evolving .qdot, .is-evolving .ttl-fnode, .is-evolving .qcap, .is-evolving .qterr,
 .is-evolving .qtrails, .is-evolving .qglow.qridge, .qevo-year { transition: opacity 0.55s ease; }
-.is-evolving .ttl-fnode, .is-evolving .qcap { transition: opacity 0.55s ease, top 0.95s linear; }
+.qterrain.is-evolving .ttl-fnode, .qterrain.is-evolving .qcap { transition: opacity 0.55s ease, top 0.95s linear; }
 .qevo-year {
   position: absolute; left: 8.2%; top: 12%; font-family: var(--font-mono);
   font-size: clamp(15px, 1.7vw, 21px); letter-spacing: 0.2em; color: var(--gold-bright);
