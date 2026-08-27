@@ -304,6 +304,12 @@
       n.addEventListener("focus", () => { stopWalk(); ttlSet(n.dataset.i); });
       n.addEventListener("click", () => { stopWalk(); ttlSet(n.dataset.i); });
     });
+    ttl.querySelectorAll(".qterr").forEach((q) => {
+      const showQ = () => { stopWalk(); ttlSet("t-" + q.dataset.fam); };
+      q.addEventListener("mouseenter", showQ);
+      q.addEventListener("focus", showQ);
+      q.addEventListener("click", showQ);
+    });
     /* rest on the newest real entry by default... */
     ttlSet(ttlNodes.length - 2);
     /* ...then, on first sight, walk the whole history once */

@@ -690,6 +690,10 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
 .ttl-detail .d { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.14em; color: var(--gold-bright); margin-bottom: 10px; }
 .ttl-detail h3 { font-family: var(--font-display); font-weight: 500; font-size: clamp(20px, 2.2vw, 26px); line-height: 1.25; }
 .ttl-detail p:last-child { color: var(--ink-dim); margin-top: 12px; max-width: 66ch; line-height: 1.7; }
+.ttl-detail.qtd { position: relative; overflow: hidden; }
+.qtd-bg { position: absolute; top: 0; right: 0; height: 100%; width: 46%; object-fit: cover; opacity: 0.4; -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 45%, transparent); mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 45%, transparent); pointer-events: none; }
+.ttl-detail.qtd .d, .ttl-detail.qtd h3, .ttl-detail.qtd p { position: relative; z-index: 1; }
+.ttl-detail.qtd p:last-child { max-width: 52ch; }
 .ttl-fnode { width: 28px; height: 28px; display: grid; place-items: center; }
 .ttl-diamond {
   display: block; width: 11px; height: 11px; background: var(--gold); position: relative;
