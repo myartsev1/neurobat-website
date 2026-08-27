@@ -291,7 +291,7 @@
       nextBtn.addEventListener("blur", () => tOn(false));
       nextBtn.addEventListener("click", () => tOn(true));
     }
-    /* the landscape grows year by year on first sight */
+    /* the landscape build, played on demand from the replay control */
     const frames = [...plot.querySelectorAll(".qevo")];
     if (frames.length && !reduced) {
       const counter = plot.querySelector(".qevo-year");
@@ -302,6 +302,20 @@
       const trailsEl = plot.querySelector(".qtrails");
       const ridgeEl = plot.querySelector(".qglow.qridge");
       const baseImg = plot.querySelector(".qterrain-img");
+      /* ground height under the founding pin per frame year, as % of plot height below its final rest */
+      const PIN_RIDE = { 2011: 10.76, 2012: 10.75, 2013: 10.74, 2014: 10.74, 2015: 10.74, 2016: 10.74, 2017: 9.66, 2018: 8.58, 2019: 8.58, 2020: 4.22, 2021: 0.01 };
+      const flagNode = plot.querySelector(".ttl-fnode");
+      const pinTop = flagNode ? parseFloat(flagNode.style.top) : null;
+      const capTop = capEl ? parseFloat(capEl.style.top) : null;
+      const ride = (y, instant) => {
+        const dy = PIN_RIDE[y] || 0;
+        [[flagNode, pinTop], [capEl, capTop]].forEach(([el, base]) => {
+          if (!el || base === null || isNaN(base)) return;
+          if (instant) el.style.transition = "none";
+          el.style.top = (base + dy) + "%";
+          if (instant) { void el.offsetHeight; el.style.removeProperty("transition"); }
+        });
+      };
       const yearOf = (n) => {
         if (n.classList.contains("ttl-fnode")) return 2015;
         const t = n.querySelector(".qyr");
@@ -320,10 +334,8 @@
       const chrome = [...nodes, capEl, trailsEl, ridgeEl, ...terrEls].filter(Boolean);
       const hidden = [...chrome, baseImg].filter(Boolean);
       const STEP = 320;
-      plot.classList.add("is-evolving");
-      hidden.forEach((el) => el.classList.add("qhid"));
       let running = false;
-      let settled = false;
+      let settled = true;
       const unlight = () => nodes.forEach((n) => { n.classList.remove("is-lit"); n.style.removeProperty("--lit"); });
       const settle = () => {
         if (settled) return;
@@ -367,47 +379,41 @@
           });
           if (y >= 2015 && capEl) capEl.classList.remove("qhid");
           terrEls.forEach((t) => { if ((famYear[t.dataset.fam] || 9999) <= y) t.classList.remove("qhid"); });
+          ride(y, false);
           i += 1;
           setTimeout(tick, STEP);
         };
         tick();
-      };
-      const startRun = () => {
-        if (running) return;
-        running = true;
-        settled = false;
-        plot.classList.add("is-evolving");
-        if (replayBtn) replayBtn.classList.remove("is-ready");
-        hidden.forEach((el) => el.classList.add("qhid"));
-        unlight();
-        frames.forEach((f) => { f.style.transition = "none"; f.classList.remove("is-shown"); });
-        requestAnimationFrame(() => {
-          frames.forEach((f) => f.style.removeProperty("transition"));
-          setTimeout(play, 350);
-        });
       };
       const framesReady = () => Promise.all(frames.map((f) => {
         if (f.complete && f.naturalWidth) return Promise.resolve(true);
         if (f.decode) return f.decode().then(() => true, () => false);
         return new Promise((r) => { f.addEventListener("load", () => r(true), { once: true }); f.addEventListener("error", () => r(false), { once: true }); });
       })).then((all) => all.every(Boolean));
-      let started = false;
-      const start = () => {
-        if (started) return;
-        started = true;
-        Promise.race([framesReady(), new Promise((r) => setTimeout(() => r(false), 6000))])
-          .then((ok) => { if (ok) startRun(); else settle(); });
+      const startRun = () => {
+        if (running) return;
+        running = true;
+        if (replayBtn) replayBtn.classList.remove("is-ready");
+        Promise.race([framesReady(), new Promise((r) => setTimeout(() => r(false), 6000))]).then((ok) => {
+          if (!ok) { running = false; if (replayBtn) replayBtn.classList.add("is-ready"); return; }
+          settled = false;
+          plot.classList.add("is-evolving");
+          plot.querySelectorAll(".is-on").forEach((el) => el.classList.remove("is-on"));
+          plot.querySelectorAll(".is-lit").forEach((el) => el.classList.remove("is-lit"));
+          hidden.forEach((el) => el.classList.add("qhid"));
+          unlight();
+          frames.forEach((f) => { f.style.transition = "none"; f.classList.remove("is-shown"); });
+          ride(2011, true);
+          requestAnimationFrame(() => {
+            frames.forEach((f) => f.style.removeProperty("transition"));
+            setTimeout(play, 350);
+          });
+        });
       };
-      if (replayBtn) replayBtn.addEventListener("click", startRun);
-      const eio = new IntersectionObserver(([en]) => {
-        if (en.isIntersecting) { eio.disconnect(); start(); }
-      }, { threshold: 0.4 });
-      eio.observe(plot);
-      const poll = setInterval(() => {
-        if (started) { clearInterval(poll); return; }
-        const r = plot.getBoundingClientRect();
-        if (r.top < innerHeight * 0.8 && r.bottom > innerHeight * 0.2) { eio.disconnect(); start(); clearInterval(poll); }
-      }, 1000);
+      if (replayBtn) {
+        replayBtn.addEventListener("click", startRun);
+        replayBtn.classList.add("is-ready");
+      }
     }
     const flag = plot.querySelector(".ttl-fnode");
     const contour = plot.querySelector(".qridge");
