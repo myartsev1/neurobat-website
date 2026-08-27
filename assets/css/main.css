@@ -364,14 +364,6 @@ body.is-loaded .hero-scroll { opacity: 1; }
 .dim-chip[data-d="social"]:hover, .dim-chip[data-d="social"][aria-pressed="true"] { border-color: rgba(127,212,154,0.55); }
 .dim-chip[data-d="comm"]:hover, .dim-chip[data-d="comm"][aria-pressed="true"] { border-color: rgba(180,154,224,0.55); }
 
-.tool-road { display: block; margin-top: clamp(26px, 4vw, 44px); opacity: 0.92; transition: opacity 0.3s ease; }
-.tool-road:hover { opacity: 1; }
-.tool-road svg { display: block; width: 100%; height: auto; }
-.tool-road text { font-family: var(--font-mono); text-transform: uppercase; }
-.tool-road .yr { font-size: 10.5px; letter-spacing: 0.12em; fill: rgba(237, 233, 223, 0.5); }
-.tool-road .tl { font-size: 10px; letter-spacing: 0.14em; fill: rgba(237, 233, 223, 0.85); }
-@media (min-width: 721px) { .tool-strip { display: none; } }
-@media (max-width: 720px) { .tool-road { display: none; } }
 .tool-strip {
   margin-top: clamp(28px, 4vw, 44px);
   font-family: var(--font-mono); font-size: clamp(12px, 1.3vw, 14px); letter-spacing: 0.12em;
