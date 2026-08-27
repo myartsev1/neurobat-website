@@ -744,7 +744,7 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
   fill: none; stroke-width: 1.7; opacity: 0; vector-effect: non-scaling-stroke;
   transition: opacity 0.45s ease;
 }
-.qoutlines path.is-on { opacity: 0.9; }
+.qoutlines path.is-on { opacity: 1; stroke-width: 2; filter: drop-shadow(0 0 1.5px rgba(8, 11, 20, 0.95)) drop-shadow(0 0 4px rgba(8, 11, 20, 0.7)); }
 .qtrails path {
   fill: none; stroke: #EDE9DF; stroke-opacity: 0.15; stroke-width: 1.1;
   stroke-dasharray: 3 6; vector-effect: non-scaling-stroke;
