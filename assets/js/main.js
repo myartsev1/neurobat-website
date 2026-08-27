@@ -319,7 +319,7 @@
       });
       const chrome = [...nodes, capEl, trailsEl, ridgeEl, ...terrEls].filter(Boolean);
       const hidden = [...chrome, baseImg].filter(Boolean);
-      const STEP = 430;
+      const STEP = 320;
       plot.classList.add("is-evolving");
       hidden.forEach((el) => el.classList.add("qhid"));
       let running = false;
@@ -339,7 +339,7 @@
             frames.forEach((f) => f.style.removeProperty("transition"));
             plot.classList.remove("is-evolving");
             running = false;
-            if (replayBtn) replayBtn.classList.add("is-ready");
+            if (replayBtn) setTimeout(() => replayBtn.classList.add("is-ready"), 450);
           });
         });
       };
@@ -348,7 +348,7 @@
         let i = 0;
         const tick = () => {
           if (i >= frames.length) {
-            setTimeout(settle, 1450);   /* let the last crossfade finish before the handoff */
+            setTimeout(settle, 1100);   /* let the last crossfade finish before the handoff */
             return;
           }
           const f = frames[i];
@@ -362,7 +362,7 @@
             if (f0 && QFAMC[f0]) {
               n.style.setProperty("--lit", QFAMC[f0]);
               n.classList.add("is-lit");
-              setTimeout(() => { n.classList.remove("is-lit"); n.style.removeProperty("--lit"); }, 1700);
+              setTimeout(() => { n.classList.remove("is-lit"); n.style.removeProperty("--lit"); }, 1400);
             }
           });
           if (y >= 2015 && capEl) capEl.classList.remove("qhid");
