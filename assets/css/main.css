@@ -782,6 +782,10 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
   opacity: 0; transition: opacity 0.45s ease; pointer-events: none;
 }
 .qglow.is-on { opacity: 1; }
+.qglow[data-fam="nav"] { clip-path: url(#qclip-nav); }
+.qglow[data-fam="soc"] { clip-path: url(#qclip-soc); }
+.qglow[data-fam="comm"] { clip-path: url(#qclip-comm); }
+.qglow[data-fam="motor"] { clip-path: url(#qclip-motor); }
 .qterr[data-fam] { pointer-events: auto; cursor: default; transition: opacity 0.3s ease, color 0.3s ease, text-shadow 0.3s ease; }
 .qterr.is-lit { color: #0a0e1a !important; opacity: 1; font-weight: 600; text-shadow: 0 0 3px rgba(255, 255, 255, 0.95), 0 0 9px rgba(255, 255, 255, 0.6), 0 0 18px rgba(255, 255, 255, 0.35); }
 .qdot:hover .qyr { color: #0a0e1a; text-shadow: 0 0 6px rgba(255, 255, 255, 0.35); }
