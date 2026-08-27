@@ -332,14 +332,12 @@
     const tk = live.querySelector(".twc-k");
     const tn = live.querySelector(".twc-n");
     const ts = live.querySelector(".twc-s");
-    const tc = live.querySelector(".twc-c");
     twheel.querySelectorAll(".twg").forEach((g) => {
       const on = () => {
         tk.textContent = g.dataset.b;
         tk.style.color = g.dataset.col;
         tn.textContent = g.dataset.t;
         ts.textContent = g.dataset.d;
-        tc.textContent = g.dataset.c;
         twheel.classList.add("has-active");
         g.classList.add("is-active");
       };

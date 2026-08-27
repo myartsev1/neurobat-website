@@ -387,7 +387,6 @@ body.is-loaded .hero-scroll { opacity: 1; }
 .twc-k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-bright); }
 .twc-n { font-family: var(--font-display); font-style: italic; font-size: 17.5px; line-height: 1.35; color: var(--ink); }
 .twc-s { font-size: 12.5px; line-height: 1.55; color: var(--ink-dim); }
-.twc-c { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; color: var(--gold-bright); }
 .tw-legend { justify-content: center; margin-top: clamp(2px, 1vw, 10px); }
 @media (max-width: 720px) { .tw-legend { display: none; } }
 @media (min-width: 721px) { .tool-strip { display: none; } }
