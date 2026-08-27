@@ -773,7 +773,7 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
   display: flex; flex-direction: column; gap: 3px; width: max-content; max-width: 230px;
   opacity: 0.95; transition: opacity 0.35s ease;
 }
-.qdot.is-lit .ttl-dot { background: var(--lit, var(--nc)); border-color: rgba(255, 255, 255, 0.92); box-shadow: 0 0 0 2px rgba(10, 14, 26, 0.75), 0 0 14px var(--lit, var(--nc)); transform: scale(1.15); }
+.qdot.is-lit .ttl-dot { background: var(--lit-bg, var(--lit, var(--nc))); border-color: rgba(255, 255, 255, 0.92); box-shadow: 0 0 0 2px rgba(10, 14, 26, 0.75), 0 0 14px var(--lit, var(--nc)); transform: scale(1.15); }
 .qdot.is-active .ttl-dot { background: var(--nc); }
 .qdot.is-active.is-lit .ttl-dot, .qdot:hover .ttl-dot { background: var(--nc); border-color: #0a0e1a; box-shadow: 0 0 0 2.5px #0a0e1a, 0 0 16px var(--nc); }
 .qdot.is-lit .qyr { color: #0a0e1a; text-shadow: 0 0 6px rgba(255, 255, 255, 0.35); }

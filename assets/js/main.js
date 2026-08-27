@@ -216,10 +216,21 @@
       glows.forEach((g) => g.classList.toggle("is-on", fams.includes(g.dataset.fam)));
       labels.forEach((l) => l.classList.toggle("is-lit", fams.includes(l.dataset.fam)));
       dots.forEach((d) => {
-        const hit = d.dataset.fam.split(" ").find((f) => fams.includes(f));
-        d.classList.toggle("is-lit", !!hit);
-        if (hit) d.style.setProperty("--lit", QFAMC[hit]);
-        else d.style.removeProperty("--lit");
+        const hits = d.dataset.fam.split(" ").filter((f) => fams.includes(f));
+        d.classList.toggle("is-lit", hits.length > 0);
+        if (hits.length) {
+          d.style.setProperty("--lit", QFAMC[hits[0]]);
+          if (hits.length > 1) {
+            const n = hits.length;
+            const stops = hits.map((f, i) => QFAMC[f] + " " + (i / n * 100).toFixed(1) + "% " + ((i + 1) / n * 100).toFixed(1) + "%").join(", ");
+            d.style.setProperty("--lit-bg", "linear-gradient(90deg, " + stops + ")");
+          } else {
+            d.style.removeProperty("--lit-bg");
+          }
+        } else {
+          d.style.removeProperty("--lit");
+          d.style.removeProperty("--lit-bg");
+        }
       });
       outlines.forEach((o) => o.classList.toggle("is-on", fams.includes(o.dataset.fam)));
     };
