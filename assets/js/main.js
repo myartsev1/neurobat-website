@@ -258,17 +258,21 @@
     plot.addEventListener("mousemove", (e) => {
       if (e.target.closest("[data-fam], .ttl-fnode")) return;
       const r = plot.getBoundingClientRect();
-      const x = Math.max(0, Math.min(319, ((e.clientX - r.left) / r.width) * 320)) | 0;
-      const y = Math.max(0, Math.min(199, ((e.clientY - r.top) / r.height) * 200)) | 0;
+      const cx = ((e.clientX - r.left) / r.width) * 1600;
+      const cy = ((e.clientY - r.top) / r.height) * 700;
       const fams = [];
-      let best = null;
+      outlines.forEach((o) => {
+        if (o.isPointInFill && o.isPointInFill(new DOMPoint(cx, cy))) fams.push(o.dataset.fam);
+      });
+      /* rank overlapping territories by glow strength under the cursor */
+      const x = Math.max(0, Math.min(319, (cx / 1600) * 320)) | 0;
+      const y = Math.max(0, Math.min(199, (cy / 700) * 200)) | 0;
+      let best = fams[0] || null;
       let bestA = 0;
       hit.forEach((h) => {
+        if (!fams.includes(h.fam)) return;
         const a = h.cx.getImageData(x, y, 1, 1).data[3];
-        if (a > 45) {
-          fams.push(h.fam);
-          if (a > bestA) { bestA = a; best = h.fam; }
-        }
+        if (a > bestA) { bestA = a; best = h.fam; }
       });
       set(fams);
       plot.dispatchEvent(new CustomEvent("qfam", { detail: best }));
