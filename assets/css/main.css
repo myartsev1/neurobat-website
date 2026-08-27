@@ -364,6 +364,12 @@ body.is-loaded .hero-scroll { opacity: 1; }
 .dim-chip[data-d="social"]:hover, .dim-chip[data-d="social"][aria-pressed="true"] { border-color: rgba(127,212,154,0.55); }
 .dim-chip[data-d="comm"]:hover, .dim-chip[data-d="comm"][aria-pressed="true"] { border-color: rgba(180,154,224,0.55); }
 
+.tool-wheel { display: block; margin-top: clamp(10px, 2vw, 22px); opacity: 0.95; transition: opacity 0.3s ease; }
+.tool-wheel:hover { opacity: 1; }
+.tool-wheel svg { display: block; width: 100%; max-width: 820px; margin: 0 auto; height: auto; }
+.tool-wheel .tw { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.13em; text-transform: uppercase; fill: rgba(237, 233, 223, 0.82); }
+@media (min-width: 721px) { .tool-strip { display: none; } }
+@media (max-width: 720px) { .tool-wheel { display: none; } }
 .tool-strip {
   margin-top: clamp(28px, 4vw, 44px);
   font-family: var(--font-mono); font-size: clamp(12px, 1.3vw, 14px); letter-spacing: 0.12em;
