@@ -751,7 +751,7 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
   transition: stroke-opacity 0.45s ease, stroke 0.45s ease;
 }
 .qtrails.is-on path { stroke: #EDE9DF; stroke-opacity: 0.65; }
-.qevo { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.5s cubic-bezier(0.35, 0, 0.4, 1); pointer-events: none; }
+.qevo { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.25s linear; pointer-events: none; }
 .qevo.is-shown { opacity: 1; }
 .qterrain .qhid { opacity: 0 !important; pointer-events: none !important; }
 .is-evolving .qterrain-img,
