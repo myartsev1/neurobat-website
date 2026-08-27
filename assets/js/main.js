@@ -324,10 +324,16 @@
       frames.forEach((f) => { frameFor[f.dataset.year] = f; });
       let started = false;
       let running = false;
+      const preload = () => frames.forEach((f) => { f.loading = "eager"; });
+      const framesReady = () => Promise.race([
+        Promise.all(frames.map((f) => (f.complete && f.naturalWidth) ? Promise.resolve() : f.decode().catch(() => {}))),
+        new Promise((r) => setTimeout(r, 3500)),
+      ]);
       const runSeq = () => {
         if (running) return;
         started = true;
         running = true;
+        preload();
         plot.classList.add("is-evolving");
         if (replayBtn) replayBtn.classList.remove("is-ready");
         hidden.forEach((el) => el.classList.add("qhid"));
@@ -376,9 +382,14 @@
           i += 1;
           setTimeout(tick, 700);
         };
-        setTimeout(tick, running && started ? 400 : 0);
+        framesReady().then(() => setTimeout(tick, 400));
       };
       if (replayBtn) replayBtn.addEventListener("click", runSeq);
+      /* fetch the frames as the section approaches, before the animation begins */
+      const pre = new IntersectionObserver(([en]) => {
+        if (en.isIntersecting) { preload(); pre.disconnect(); }
+      }, { rootMargin: "1200px" });
+      pre.observe(plot);
       const eio = new IntersectionObserver(([en]) => {
         if (en.isIntersecting) { eio.disconnect(); runSeq(); }
       }, { threshold: 0.45 });
