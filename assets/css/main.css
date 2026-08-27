@@ -751,7 +751,7 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
   transition: stroke-opacity 0.45s ease, stroke 0.45s ease;
 }
 .qtrails.is-on path { stroke: #EDE9DF; stroke-opacity: 0.65; }
-.qevo { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.45s linear; pointer-events: none; }
+.qevo { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.5s cubic-bezier(0.35, 0, 0.4, 1); pointer-events: none; }
 .qevo.is-shown { opacity: 1; }
 .qterrain .qhid { opacity: 0 !important; pointer-events: none !important; }
 .is-evolving .qterrain-img,
@@ -925,20 +925,20 @@ a.album-tile { display: block; }
 /* ---------- Illustration plate ---------- */
 .plate {
   border-radius: 18px; overflow: hidden; border: 1px solid var(--line);
-  background: #f4f1e9;
+  background: var(--bg-2);
 }
 .plate img { width: 100%; display: block; padding: clamp(18px, 3vw, 40px) clamp(14px, 2.5vw, 32px) clamp(10px, 2vw, 24px); }
 .plate-caps {
   display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;
   padding: 0 clamp(18px, 3vw, 44px) clamp(18px, 3vw, 32px);
   font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: #4a4438; line-height: 1.7;
+  color: var(--ink-dim); line-height: 1.7;
 }
-.plate-caps em { font-style: normal; color: #a07d1c; margin-right: 8px; }
+.plate-caps em { font-style: normal; color: var(--gold-bright); margin-right: 8px; }
 .plate-credit {
   display: block; text-align: right; padding: 0 clamp(18px, 3vw, 44px) 18px;
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
-  text-transform: uppercase; color: #9a917f;
+  text-transform: uppercase; color: rgba(237, 233, 223, 0.42);
 }
 .plate-caps span:nth-child(2) { text-align: center; }
 .plate-caps span:nth-child(3) { text-align: right; }

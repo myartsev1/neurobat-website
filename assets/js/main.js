@@ -351,7 +351,7 @@
           if (y >= 2015 && capEl) capEl.classList.remove("qhid");
           terrEls.forEach((t) => { if ((famYear[t.dataset.fam] || 9999) <= y) t.classList.remove("qhid"); });
           i += 1;
-          setTimeout(tick, 560);
+          setTimeout(tick, 640);
         };
         tick();
       };
