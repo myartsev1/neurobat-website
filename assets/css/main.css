@@ -364,6 +364,11 @@ body.is-loaded .hero-scroll { opacity: 1; }
 .dim-chip[data-d="social"]:hover, .dim-chip[data-d="social"][aria-pressed="true"] { border-color: rgba(127,212,154,0.55); }
 .dim-chip[data-d="comm"]:hover, .dim-chip[data-d="comm"][aria-pressed="true"] { border-color: rgba(180,154,224,0.55); }
 
+.tool-strip {
+  margin-top: clamp(28px, 4vw, 44px);
+  font-family: var(--font-mono); font-size: clamp(12px, 1.3vw, 14px); letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--ink-dim); line-height: 2.2; max-width: 62em;
+}
 .tool-close {
   font-family: var(--font-display); font-style: italic; font-size: clamp(19px, 2vw, 24px);
   color: var(--gold-bright); margin-top: clamp(36px, 5vw, 56px); line-height: 1.5; max-width: 30em;
