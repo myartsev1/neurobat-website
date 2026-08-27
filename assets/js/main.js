@@ -325,6 +325,35 @@
     }
   });
 
+  /* ---------- Toolkit wheel (homepage) ---------- */
+  const twheel = document.querySelector(".tool-wheel");
+  if (twheel) {
+    const live = twheel.querySelector(".twc-live");
+    const tk = live.querySelector(".twc-k");
+    const tn = live.querySelector(".twc-n");
+    const ts = live.querySelector(".twc-s");
+    const tc = live.querySelector(".twc-c");
+    twheel.querySelectorAll(".twg").forEach((g) => {
+      const on = () => {
+        tk.textContent = g.dataset.y + " \u00b7 " + g.dataset.b;
+        tk.style.color = g.dataset.col;
+        tn.textContent = g.dataset.t;
+        ts.textContent = g.dataset.d;
+        tc.textContent = g.dataset.c;
+        twheel.classList.add("has-active");
+        g.classList.add("is-active");
+      };
+      const off = () => {
+        twheel.classList.remove("has-active");
+        g.classList.remove("is-active");
+      };
+      g.addEventListener("mouseenter", on);
+      g.addEventListener("mouseleave", off);
+      g.addEventListener("focus", on);
+      g.addEventListener("blur", off);
+    });
+  }
+
   /* ---------- Photo fallbacks ---------- */
   document.querySelectorAll(".photo-frame img").forEach((img) => {
     img.addEventListener("error", () => img.closest(".photo-frame").classList.add("missing"));
