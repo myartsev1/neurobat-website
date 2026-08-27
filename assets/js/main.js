@@ -335,7 +335,7 @@
     const tc = live.querySelector(".twc-c");
     twheel.querySelectorAll(".twg").forEach((g) => {
       const on = () => {
-        tk.textContent = g.dataset.y + " \u00b7 " + g.dataset.b;
+        tk.textContent = g.dataset.y ? g.dataset.y + " \u00b7 " + g.dataset.b : g.dataset.b;
         tk.style.color = g.dataset.col;
         tn.textContent = g.dataset.t;
         ts.textContent = g.dataset.d;
