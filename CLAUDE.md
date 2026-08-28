@@ -45,6 +45,7 @@ For images/videos: the URL must change when the file changes (rename the file, o
 - Videos MUST be faststart (moov atom at file start) and video-only (no audio track, even silent). AVFoundation exports need `shouldOptimizeForNetworkUse = true`. Verify: byte-scan for `moov` near offset 32 and absence of `mp4a`/`soun`. A silent audio track or tail-moov breaks Chromium playback entirely.
 - Verify with real playback (headless Chromium sampling `video.currentTime` twice), not with curl range requests, which can pass while playback fails.
 - Photos: optimize to ≤2000px longest side, JPEG quality ~80, into `assets/img/`. Keep multi-MB originals OUT of the repo (move to the parent folder).
+- If a video "stops working" in one browser while file/server/headless checks all pass: the viewer's long-running browser has a wedged media process; a FULL quit and relaunch fixes it. The auto-video JS surfaces native controls after repeated refused plays, so this failure mode shows a play button, not a frozen image.
 - Photo credits: bat photography © Kim Taylor / Warren Photographic (footer credit). Do not add third-party photos without confirmed rights.
 
 ## Common recipes
