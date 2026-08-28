@@ -397,6 +397,7 @@
         Promise.race([framesReady(), new Promise((r) => setTimeout(() => r(false), 6000))]).then((ok) => {
           if (!ok) { running = false; if (replayBtn) replayBtn.classList.add("is-ready"); return; }
           settled = false;
+          plot.dispatchEvent(new CustomEvent("qrun-start", { bubbles: true }));
           plot.classList.add("is-evolving");
           plot.querySelectorAll(".is-on").forEach((el) => el.classList.remove("is-on"));
           plot.querySelectorAll(".is-lit").forEach((el) => el.classList.remove("is-lit"));
@@ -468,10 +469,12 @@
     /* ...then, on first sight, walk the whole history once */
     if (!reduced) {
       let walked = false;
+      ttl.addEventListener("qrun-start", stopWalk);
       const wio = new IntersectionObserver(([en]) => {
         if (!en.isIntersecting || walked) return;
         walked = true;
         wio.disconnect();
+        if (ttl.querySelector(".qterrain.is-evolving")) return;   /* the build is playing; its own lighting covers this */
         let i = 0;
         ttlSet(0);
         walking = setInterval(() => {
@@ -480,9 +483,7 @@
           ttlSet(i);
         }, 750);
       }, { threshold: 0.6 });
-      if (!ttl.querySelector(".qterrain .qevo")) {
-        wio.observe(ttl);
-      }
+      wio.observe(ttl);
     }
   });
 
