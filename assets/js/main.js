@@ -346,7 +346,7 @@
       });
       const chrome = [...nodes, capEl, trailsEl, ridgeEl, ...terrEls].filter(Boolean);
       const hidden = [...chrome, baseImg].filter(Boolean);
-      const STEP = 320;
+      const STEP = 380;
       let running = false;
       let settled = true;
       const unlight = () => nodes.forEach((n) => { n.classList.remove("is-lit"); n.style.removeProperty("--lit"); });
@@ -373,7 +373,7 @@
         let i = 0;
         const tick = () => {
           if (i >= frames.length) {
-            setTimeout(settle, 1100);   /* let the last crossfade finish before the handoff */
+            setTimeout(settle, 1300);   /* let the last crossfade finish before the handoff */
             return;
           }
           const f = frames[i];
@@ -387,7 +387,7 @@
             if (f0 && QFAMC[f0]) {
               n.style.setProperty("--lit", QFAMC[f0]);
               n.classList.add("is-lit");
-              setTimeout(() => { n.classList.remove("is-lit"); n.style.removeProperty("--lit"); }, 1400);
+              setTimeout(() => { n.classList.remove("is-lit"); n.style.removeProperty("--lit"); }, 1550);
             }
           });
           if (y >= 2015 && capEl) capEl.classList.remove("qhid");

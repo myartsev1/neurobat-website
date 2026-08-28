@@ -751,13 +751,13 @@ a.alum:hover .alum-cue { color: var(--gold-bright); opacity: 1; transform: trans
   transition: stroke-opacity 0.45s ease, stroke 0.45s ease;
 }
 .qtrails.is-on path { stroke: #EDE9DF; stroke-opacity: 0.65; }
-.qevo { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.95s linear; pointer-events: none; }
+.qevo { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.1s linear; pointer-events: none; }
 .qevo.is-shown { opacity: 1; }
 .qterrain .qhid { opacity: 0 !important; pointer-events: none !important; }
 .is-evolving .qterrain-img,
 .is-evolving .qdot, .is-evolving .ttl-fnode, .is-evolving .qcap, .is-evolving .qterr,
 .is-evolving .qtrails, .is-evolving .qglow.qridge, .qevo-year { transition: opacity 0.55s ease; }
-.qterrain.is-evolving .ttl-fnode, .qterrain.is-evolving .qcap { transition: opacity 0.55s ease, top 0.95s linear; }
+.qterrain.is-evolving .ttl-fnode, .qterrain.is-evolving .qcap { transition: opacity 0.55s ease, top 1.1s linear; }
 .qevo-year {
   position: absolute; left: 8.2%; top: 12%; font-family: var(--font-mono);
   font-size: clamp(15px, 1.7vw, 21px); letter-spacing: 0.2em; color: var(--gold-bright);
