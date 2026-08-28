@@ -179,25 +179,38 @@
   document.querySelectorAll(".auto-video").forEach((v) => {
     if (reduced) { v.pause(); return; }
     let inView = false;
+    let denied = 0;
+    /* if the browser keeps refusing play() (autoplay blocked, power saving),
+       surface the native controls so one tap starts it */
+    const tryPlay = () => v.play().then(
+      () => { denied = 0; if (v.controls) v.controls = false; },
+      () => { if (inView && ++denied >= 2) v.controls = true; }
+    );
+    v.addEventListener("playing", () => { denied = 0; if (v.controls) v.controls = false; });
     const vio = new IntersectionObserver(([en]) => {
       inView = en.isIntersecting;
-      if (inView) { v.preload = "auto"; v.play().catch(() => {}); }
+      if (inView) { v.preload = "auto"; tryPlay(); }
       else v.pause();
     }, { threshold: 0.1 });
     vio.observe(v);
     /* self-healing loop: restart on end, resume if paused, and un-stick
        stalled decoding (a stalled video is not "paused", so track progress) */
-    v.addEventListener("ended", () => { v.currentTime = 0; v.play().catch(() => {}); });
+    v.addEventListener("ended", () => { v.currentTime = 0; tryPlay(); });
     let lastT = -1, stuck = 0;
     setInterval(() => {
       if (!inView || document.hidden) return;
-      if (v.paused) { v.play().catch(() => {}); return; }
+      if (v.paused) { tryPlay(); return; }
       if (v.currentTime === lastT) {
         stuck++;
-        if (stuck >= 2) {
-          stuck = 0;
+        if (stuck === 2) {
           if (v.duration && v.currentTime > v.duration - 0.5) v.currentTime = 0;
-          v.play().catch(() => {});
+          tryPlay();
+        } else if (stuck === 4) {
+          v.load();          /* rebuild the media pipeline: clears wedged decoders */
+          tryPlay();
+        } else if (stuck >= 6) {
+          stuck = 0;
+          v.controls = true;
         }
       } else { stuck = 0; }
       lastT = v.currentTime;
