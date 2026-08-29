@@ -574,7 +574,7 @@ body.is-loaded .hero-scroll { opacity: 1; }
   color: var(--ink-faint); font-size: 14px; line-height: 1.6;
   transition: max-height 0.5s var(--ease), opacity 0.4s ease 0.05s, margin-top 0.5s var(--ease);
 }
-.pub-row:hover .pub-sub, .pub-row:focus-within .pub-sub { max-height: 6.5em; opacity: 1; margin-top: 7px; }
+.pub-row:hover .pub-sub, .pub-row:focus-within .pub-sub { max-height: 13em; opacity: 1; margin-top: 7px; }
 @media (hover: none) { .pub-row .pub-sub { max-height: none; opacity: 1; margin-top: 7px; } }
 @media (max-width: 760px) { .pub-row { grid-template-columns: 1fr; gap: 8px; } }
 .pub-row:hover { background: rgba(255,255,255,0.018); padding-left: 14px; }
