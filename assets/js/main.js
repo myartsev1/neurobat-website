@@ -175,6 +175,11 @@
     if (chipsWrap) chipsWrap.addEventListener("mouseleave", () => render(null));
   }
 
+  /* on phones the tool wheel sits in a swipe strip: start it centered */
+  document.querySelectorAll(".tw-scroll").forEach((s) => {
+    if (s.scrollWidth > s.clientWidth) s.scrollLeft = (s.scrollWidth - s.clientWidth) / 2;
+  });
+
   /* ---------- Auto-playing videos: reduced motion + offscreen pause ---------- */
   document.querySelectorAll(".auto-video").forEach((v) => {
     if (reduced) { v.pause(); return; }
