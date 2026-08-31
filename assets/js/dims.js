@@ -283,15 +283,20 @@
     ctx.font = "9.5px 'JetBrains Mono', monospace";
     ctx.fillStyle = `rgba(${C.ink},0.75)`;
     ctx.fillText("THE RECORDED BAT", W - 14, 22);
-    ctx.fillStyle = `rgba(${C.social},0.8)`;
-    ctx.fillText("ANOTHER BAT", W - 14, 38);
     const lw1 = ctx.measureText("THE RECORDED BAT").width;
-    const lw2 = ctx.measureText("ANOTHER BAT").width;
     ctx.textAlign = "left";
-    ctx.beginPath(); ctx.arc(W - 14 - lw1 - 10, 18.5, 2.6, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(${C.ink},0.95)`; ctx.fill();
-    ctx.beginPath(); ctx.arc(W - 14 - lw2 - 10, 34.5, 2.6, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(${C.social},0.95)`; ctx.fill();
+    /* legend swatches are miniature bats so they match what flies in the arena */
+    const miniBat = (x, y, wingRGB, bodyRGB) => {
+      ctx.lineWidth = 1.2;
+      ctx.strokeStyle = `rgba(${wingRGB},0.9)`;
+      ctx.beginPath();
+      ctx.moveTo(x, y); ctx.quadraticCurveTo(x + 3.5, y - 3.6, x + 6.5, y - 2.4);
+      ctx.moveTo(x, y); ctx.quadraticCurveTo(x - 3.5, y - 3.6, x - 6.5, y - 2.4);
+      ctx.stroke();
+      ctx.beginPath(); ctx.arc(x, y, 2.3, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${bodyRGB},0.95)`; ctx.fill();
+    };
+    miniBat(W - 14 - lw1 - 13, 19.5, C.motor, C.ink);
 
     /* ---- reward sites (drive spatial firing) ---- */
     const aS = alphaFor("spatial");
@@ -349,6 +354,9 @@
     ctx.arc(pal.x, pal.y, 2.6, 0, Math.PI * 2);
     ctx.fillStyle = `rgba(${C.social},${0.95 * aG})`;
     ctx.fill();
+    ctx.font = "9.5px 'JetBrains Mono', monospace";
+    ctx.fillStyle = `rgba(${C.social},${0.75 * aG})`;
+    ctx.fillText("ANOTHER BAT", pal.x + 12, pal.y + 3);
 
     const dPal = Math.hypot(bat.x - pal.x, bat.y - pal.y);
     if (dPal < W * 0.3) {
