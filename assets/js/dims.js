@@ -273,9 +273,9 @@
     /* section tags */
     ctx.font = "10.5px 'JetBrains Mono', monospace";
     ctx.fillStyle = `rgba(${C.ink},0.45)`;
-    ctx.fillText("EXAMPLE BEHAVIOR: FORAGING IN FLIGHT", 14, 22);
+    ctx.fillText("EXAMPLE BEHAVIOR · THE RECORDED BAT, FORAGING IN FLIGHT", 14, 22);
     ctx.fillStyle = `rgba(232,195,74,0.75)`;
-    ctx.fillText("NEURAL ACTIVITY · ONE BEHAVIOR, MANY BRAIN SYSTEMS", 14, laneTop + 4);
+    ctx.fillText("ITS NEURAL ACTIVITY · ONE BEHAVIOR, MANY BRAIN SYSTEMS", 14, laneTop + 4);
     ctx.fillStyle = `rgba(${C.ink},0.4)`;
     ctx.textAlign = "right";
     ctx.fillText("EACH TICK = ONE SPIKE", W - 14, laneTop + 4);
@@ -450,6 +450,10 @@
     ctx.arc(bat.x, bat.y, 3, 0, Math.PI * 2);
     ctx.fillStyle = `rgba(${C.ink},0.95)`;
     ctx.fill();
+    /* name the subject: the four lanes below are this bat's brain */
+    ctx.font = "9.5px 'JetBrains Mono', monospace";
+    ctx.fillStyle = `rgba(${C.ink},0.6)`;
+    ctx.fillText("THE RECORDED BAT", Math.min(bat.x + 14, W - 112), Math.min(bat.y + 18, arenaH - 10));
 
     /* ---- lanes ---- */
     ctx.lineWidth = 1;
