@@ -56,7 +56,22 @@
       "Bash(rm -rf v2_png)",
       "Bash(swift render_pdf.swift v2_keynote.pdf v2_png 1.2)",
       "Bash(rm -f /private/tmp/claude-502/-Users-MichaelNew-Downloads-myartsev-Claude-Cowork-Safe-Workspace-Website/ae197219-b4a0-4597-9f45-2fcc50ff64f9/scratchpad/ascona/v2_keynote.pdf)",
-      "Bash(swift render_pdf.swift v2_keynote.pdf v2_png 1.2 1 15)"
+      "Bash(swift render_pdf.swift v2_keynote.pdf v2_png 1.2 1 15)",
+      "Bash(python3)",
+      "Bash(python3 -c \"import matplotlib, numpy, scipy; print\\(matplotlib.__version__, numpy.__version__, scipy.__version__\\)\")",
+      "Bash(python3 -c \"import matplotlib.font_manager as fm; names={f.name for f in fm.fontManager.ttflist}; print\\([n for n in ['Helvetica','Arial','Inter','Helvetica Neue'] if n in names]\\)\")",
+      "Bash(python3 -c \"import matplotlib, numpy, scipy; print\\('ok', matplotlib.__version__\\)\")",
+      "Bash(python3 make_comparisons.py)",
+      "Bash(python3 make_arch.py)",
+      "Bash(python3 make_fig3.py)",
+      "Bash(python3 make_report.py)",
+      "Bash(mkdir -p figure_mockups)",
+      "Bash(cp after_*.png after_*.pdf twin_style.py make_comparisons.py make_arch.py make_fig3.py figure_mockups/)",
+      "Bash(zip -qr figure_mockups.zip figure_mockups)",
+      "Bash(python3 make_gh_v2.py)",
+      "Bash(cp after_1GH_v2.png after_1GH_v2.pdf make_gh_v2.py figure_mockups/)",
+      "Bash(rm -f figure_mockups.zip)",
+      "Bash(python3 make_arch_v3.py)"
     ]
   }
 }
