@@ -76,7 +76,7 @@ Journal pill classes: j-nature, j-science, j-cell, j-other.
 
 **Move someone to alumni** (people.html): alumni entries are unlinked, format `Name · Role: YYYY–YYYY` (en dash).
 
-**Home Roost** (album-home-roost.html) is the evergreen everyday-lab-life album: photos dropped into `../album-originals/Everyday_Lab_Life/` get APPENDED with the next numbers (NEVER renumber existing photos once pushed; bump counts in the album page and lab-life tile).
+**Home Roost** (album-home-roost.html) is the evergreen everyday-lab-life album: photos dropped into `../album-originals/Everyday_Lab_Life/` get APPENDED with the next numbers (subtitle reads 'N photos · a tiny fraction of the everyday life we share in the lab') (NEVER renumber existing photos once pushed; bump counts in the album page and lab-life tile).
 
 **Add a Lab Life album**: originals go to `../album-originals/<year>-<event>/` (NEVER into the repo); optimize web copies into `assets/img/albums/<slug>/`, copy an album-*.html as template, add a tile in lab-life.html with photo count, and add a news item.
 
