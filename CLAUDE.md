@@ -18,6 +18,8 @@ GitHub Pages redeploys automatically in about a minute. To undo the last change:
 
 ## House style (non-negotiable)
 
+- NEVER add editorial content the user did not explicitly request (news items, announcements, copy, sections, credits): propose it and ask first. Mechanical sync demanded by a requested change (cache stamps, counts, sitemap, redirects, parallel mobile lists) is fine.
+
 - NO em dashes (—) anywhere. Use commas, colons, periods, or middots (·). En dashes only for year ranges (2019–21).
 - Headings are sentence case with a period ("Tools that follow the behavior.").
 - Citations: `Author et al., Full Journal Name, Year →` with comma before year, full journal names, `.tl-cite` class (add `.block` for stacked rows).
