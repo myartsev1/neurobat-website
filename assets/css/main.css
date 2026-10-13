@@ -581,6 +581,12 @@ body.is-loaded .hero-scroll { opacity: 1; }
 .pub-row .t { font-family: var(--font-display); font-weight: 500; font-size: clamp(18px, 1.9vw, 23px); line-height: 1.35; }
 .pub-row .a { color: var(--ink-faint); font-size: 14.5px; margin-top: 6px; }
 .pub-row .a strong { color: var(--ink-dim); font-weight: 500; }
+.pub-press { margin-top: 9px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-faint); line-height: 2.1; }
+.pub-press .k { opacity: 0.55; margin-right: 5px; }
+.pub-press a { border-bottom: 1px solid rgba(237,233,223,0.16); padding-bottom: 1px; white-space: nowrap; transition: color 0.25s ease, border-color 0.25s ease; }
+.pub-press a:hover { color: var(--gold-bright); border-color: rgba(232,195,74,0.55); }
+.press-line a { color: var(--ink-dim); border-bottom: 1px solid rgba(201,162,39,0.35); transition: color 0.3s ease; }
+.press-line a:hover { color: var(--gold-bright); }
 
 /* ---------- People ---------- */
 .people-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
