@@ -78,7 +78,7 @@ Journal pill classes: j-nature, j-science, j-cell, j-other.
 
 **Home Roost** (album-home-roost.html) is the evergreen everyday-lab-life album: photos dropped into `../album-originals/Everyday_Lab_Life/` get APPENDED with the next numbers (subtitle reads 'N photos · a tiny fraction of the everyday life we share in the lab') (NEVER renumber existing photos once pushed; bump counts in the album page and lab-life tile).
 
-**Add a Lab Life album**: originals go to `../album-originals/<year>-<event>/` (NEVER into the repo); optimize web copies into `assets/img/albums/<slug>/`, copy an album-*.html as template, add a tile in lab-life.html with photo count, and add a news item.
+**Add a Lab Life album**: originals go to `../album-originals/<year>-<event>/` (NEVER into the repo); optimize web copies into `assets/img/albums/<slug>/`, copy an album-*.html as template, add a tile in lab-life.html with photo count. NO news item: lab outings and albums live on the Lab Life page only, never the news feed (user policy, Oct 2026).
 
 **Winding-road timelines** (research.html): TWO of them, 05 The Questions and 06 The Toolkit, sharing identical road geometry and node slots. Nodes + detail cards share sequential `data-i` within each `.ttl` container; main.js scopes all interaction per container (do not query `.ttl-node` globally). Each has a parallel `.ttl-mobile` list to keep in sync. The 2015 founding milestone is a `ttl-fnode` button (gold diamond, no behavioral color, no citation) present on both.
 
